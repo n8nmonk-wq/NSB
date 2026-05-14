@@ -99,13 +99,100 @@ a {
 }
 
 a:hover {
-  color: var(--color-secondary);
+  color: #163026; /* Darkened Deep Sage — always readable */
 }
 
 .container {
   width: var(--container-width);
   margin: 0 auto;
 }
+
+/* ===== GLOBAL PREMIUM BUTTON SYSTEM ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2.25rem;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  /* Spring-bounce: overshoots then snaps — the "addictive" feel */
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.22s ease,
+              background-position 0.4s ease,
+              filter 0.2s ease;
+  text-decoration: none !important;
+  border: 2px solid transparent;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Solid primary — gradient shifts on hover (no overlay on text) */
+.btn-primary {
+  background: linear-gradient(110deg, #1E3F33 0%, #2D5C47 50%, #163026 100%);
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  color: #FFFFFF !important;
+  border-color: transparent;
+  box-shadow: 0 4px 16px rgba(30, 63, 51, 0.22);
+}
+.btn-primary:hover {
+  background-position: 100% 50%;
+  color: #FFFFFF !important;
+  transform: translateY(-3px) scale(1.025);
+  box-shadow: 0 14px 40px -6px rgba(30, 63, 51, 0.5),
+              0 0 0 4px rgba(30, 63, 51, 0.1);
+  filter: brightness(1.05);
+}
+.btn-primary:active {
+  transform: translateY(-1px) scale(1.01);
+  box-shadow: 0 6px 20px -4px rgba(30, 63, 51, 0.4);
+}
+
+/* Outline — transparent at rest, fills + lifts on hover */
+.btn-outline {
+  background: transparent;
+  color: #FFFFFF !important;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.22s ease,
+              background 0.22s ease,
+              border-color 0.15s ease;
+}
+.btn-outline:hover {
+  background: linear-gradient(110deg, #1E3F33 0%, #2D5C47 50%, #163026 100%);
+  color: #FFFFFF !important;
+  border-color: transparent;
+  transform: translateY(-3px) scale(1.025);
+  box-shadow: 0 14px 40px -6px rgba(30, 63, 51, 0.38),
+              0 0 0 4px rgba(30, 63, 51, 0.08);
+}
+.btn-outline:active {
+  transform: translateY(-1px) scale(1.01);
+}
+
+/* Ghost — for use on dark/image backgrounds */
+.btn-ghost {
+  background: rgba(255,255,255,0.1);
+  color: #FFFFFF !important;
+  border: 2px solid rgba(255,255,255,0.45);
+  backdrop-filter: blur(8px);
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.22s ease,
+              background 0.2s ease,
+              border-color 0.2s ease;
+}
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.25);
+  color: #FFFFFF !important;
+  border-color: rgba(255,255,255,0.75);
+  transform: translateY(-3px) scale(1.025);
+  box-shadow: 0 12px 36px -6px rgba(0,0,0,0.25);
+}
+/* ======================================== */
 
 /* For 100vw backgrounds without horizontal scroll */
 .full-width-section {
