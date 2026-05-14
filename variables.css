@@ -1,0 +1,137 @@
+  :root {
+  /* Palette: Luxury Botanical Aesthetic */
+  --color-primary: #1E3F33; /* Deep Sage */
+  --color-secondary: #F0F4F1; /* Soft Mint */
+  --color-accent: #D4AF37; /* Muted Brass */
+  --color-background: #FFFFFF;
+  --color-text: #111827; /* Dark Dominance / Charcoal Slate */
+  --color-white: #FFFFFF;
+  --color-light-gray: #EAE6DF;
+
+  /* Typography: Fonts */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Fluid Typography using clamp() */
+  /* Base size: 16px to 18px */
+  --text-base: clamp(1rem, 0.95vw + 0.8rem, 1.125rem);
+  /* Small text: 14px to 16px */
+  --text-sm: clamp(0.875rem, 0.48vw + 0.75rem, 1rem);
+  /* Heading 1: 40px to 64px */
+  --h1: clamp(2.5rem, 5vw + 1.25rem, 4rem);
+  /* Heading 2: 32px to 48px */
+  --h2: clamp(2rem, 4vw + 1rem, 3rem);
+  /* Heading 3: 24px to 32px */
+  --h3: clamp(1.5rem, 3vw + 0.75rem, 2rem);
+  /* Heading 4: 20px to 24px */
+  --h4: clamp(1.25rem, 2vw + 0.75rem, 1.5rem);
+
+  /* Multi-Screen "Premium Fluidity" Logic */
+  --container-width: min(94%, 1440px);
+  --section-padding: clamp(3rem, 6vw, 6rem) 0;
+  --hero-padding: clamp(4rem, 10vw, 12rem) clamp(2rem, 8vw, 12rem);
+
+  /* UI Variables */
+  --border-radius: 8px;
+  --shadow-soft: none; /* Removed permanent heavy shadows as requested */
+  --shadow-hover: 0 10px 40px -10px rgba(0,0,0,0.06);
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  --color-heading: #111827;
+  --color-body-text: #4B5563;
+  --color-footer-bg: #111827;
+  --color-footer-text: #E5E7EB;
+}
+
+/* Global Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-body-text);
+  background-color: var(--color-background);
+  font-size: var(--text-base);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-heading);
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: var(--h1);
+}
+
+h2 {
+  font-size: var(--h2);
+}
+
+h3 {
+  font-size: var(--h3);
+}
+
+h4 {
+  font-size: var(--h4);
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+a:hover {
+  color: var(--color-secondary);
+}
+
+.container {
+  width: var(--container-width);
+  margin: 0 auto;
+}
+
+/* For 100vw backgrounds without horizontal scroll */
+.full-width-section {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 0 clamp(2rem, 8vw, 12rem);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Helper for smooth animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

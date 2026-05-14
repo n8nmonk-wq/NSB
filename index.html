@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Narendra Bhatt | Premium Ayurvedic Consultant</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="variables.css">
+  
+  <style>
+    /* =========================================
+       LAYOUT SPECIFIC STYLES
+       ========================================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--color-light-gray);
+      padding: 1rem 0;
+      transition: var(--transition-smooth);
+    }
+    .nav-container {
+      width: var(--container-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-family: var(--font-heading);
+      font-size: var(--h4);
+      color: var(--color-primary);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-weight: 500;
+      color: var(--color-text);
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .nav-links a:hover {
+      color: var(--color-secondary);
+    }
+    .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+    .hamburger-line { display: block; width: 24px; height: 2px; background-color: var(--color-primary); margin: 5px 0; transition: var(--transition-smooth); }
+    @media (max-width: 900px) {
+      .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--color-background); flex-direction: column; align-items: center; gap: 0; max-height: 0; overflow: hidden; transition: max-height 0.4s ease; border-bottom: 1px solid transparent; }
+      .nav-links.active { max-height: 500px; border-bottom-color: var(--color-light-gray); }
+      .nav-links li { width: 100%; text-align: center; }
+      .nav-links a { display: block; padding: 1.5rem; border-top: 1px solid var(--color-light-gray); }
+      .mobile-menu-btn { display: block; }
+    }
+    .site-footer { background-color: var(--color-footer-bg); color: var(--color-footer-text); padding: clamp(3rem, 8vw, 6rem) 0 2rem; }
+    .footer-grid {
+      width: var(--container-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+    .footer-col h3 { color: var(--color-footer-text); font-size: var(--h4); margin-bottom: 1.5rem; }
+    .footer-col p { color: rgba(255, 255, 255, 0.8); font-size: var(--text-sm); }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 0.75rem; }
+    .footer-links a { color: rgba(255, 255, 255, 0.8); font-size: var(--text-sm); }
+    .footer-links a:hover { color: var(--color-primary); padding-left: 5px; }
+    .footer-bottom {
+      width: var(--container-width);
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: clamp(0.75rem, 0.5vw + 0.7rem, 0.875rem);
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* =========================================
+       INDEX SPECIFIC STYLES - UI REVISION
+       ========================================= */
+    .hero {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      padding: clamp(6rem, 10vw, 12rem) clamp(2rem, 8vw, 12rem);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      background-color: var(--color-secondary);
+    }
+    .hero-content h1 {
+      font-size: calc(var(--h1) * 1.2);
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      color: var(--color-text);
+    }
+    .hero-content p {
+      font-size: var(--text-base);
+      color: #475569;
+      margin-bottom: 2.5rem;
+      max-width: 500px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      border-radius: 30px; /* Modern round buttons */
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: var(--transition-smooth);
+      font-size: var(--text-sm);
+    }
+    .btn-primary {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      box-shadow: 0 8px 20px rgba(103, 61, 230, 0.3);
+    }
+    .btn-primary:hover {
+      background-color: var(--color-secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(103, 61, 230, 0.4);
+      color: var(--color-white);
+    }
+    .btn-outline {
+      border: 2px solid var(--color-primary);
+      color: var(--color-primary);
+      background-color: transparent;
+    }
+    .btn-outline:hover {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+    }
+    
+    /* Organic Shape & Floating Elements */
+    .hero-image-container {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-image-wrapper {
+      position: relative;
+      width: 80%;
+      aspect-ratio: 4/5;
+      background-color: transparent;
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-white);
+      font-family: var(--font-body);
+      text-align: left;
+      padding: 0;
+      overflow: hidden;
+      z-index: 10;
+      margin-bottom: -40px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    }
+    .hero-image-wrapper img {
+       width: 100%;
+       height: 100%;
+       object-fit: cover;
+       position: absolute;
+       top: 0; left: 0;
+       opacity: 1; 
+    }
+    .floating-badge {
+      position: absolute;
+      bottom: 10%;
+      right: -5%;
+      background: var(--color-white);
+      color: var(--color-primary);
+      padding: 1rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 700;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      z-index: 3;
+      border: 1px solid var(--color-light-gray);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .floating-badge::before {
+      content: '';
+      display: block;
+      width: 12px;
+      height: 12px;
+      background-color: #10B981; /* Success dot */
+      border-radius: 50%;
+    }
+
+    /* Stats Section */
+    .stats-section {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      color: var(--color-text);
+      padding: 3rem 0;
+      position: relative;
+      z-index: 10;
+      margin-bottom: 6rem;
+      border-top: 1px solid var(--color-light-gray);
+      border-bottom: 1px solid var(--color-light-gray);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+    .stat-item h3 {
+      font-size: var(--h2);
+      color: var(--color-heading);
+      margin-bottom: 0.25rem;
+    }
+    .stat-item p {
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: var(--text-sm);
+      color: #64748B;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: left;
+        padding: clamp(4rem, 8vw, 6rem) clamp(1rem, 5vw, 2rem);
+      }
+      .hero-content p {
+        margin: 0 auto 2.5rem;
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
+      .hero-image-container {
+        max-width: 100%;
+        margin: 0 auto;
+      }
+      .stats-section {
+        padding: 2rem 0;
+      }
+    }
+
+    /* CSS Marquee Divider */
+    .marquee-container { width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; background: #F9FAFB; border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB; padding: 1.5rem 0; overflow: hidden; z-index: 1; margin-top: 4rem; margin-bottom: 6rem; }
+    .marquee-content { display: flex; white-space: nowrap; animation: marquee 20s linear infinite; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 1.1rem; color: #111827; }
+    .marquee-content span {
+      margin: 0 2rem;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Services Grid with Card Depth & Overlapping Icons */
+    .section-padding { padding: 8rem 0; }
+    .section-header { text-align: center; margin-bottom: 4rem; }
+    .section-header h2 { font-size: var(--h2); margin-bottom: 1rem; color: var(--color-heading); }
+    .section-header p { max-width: 600px; margin: 0 auto; color: var(--color-body-text); }
+
+    /* Bento Grid for Legacy */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, minmax(200px, auto));
+      gap: 2rem;
+      margin-top: 4rem;
+      margin-bottom: 2rem;
+    }
+    .bento-item {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 2.5rem;
+      border: 1px solid #E5E7EB;
+      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: var(--transition-smooth);
+      text-align: left;
+    }
+    .bento-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: #E5E7EB; }
+    .bento-item h3 { color: var(--color-heading); font-size: 1.5rem; margin-bottom: 0.75rem; }
+    .bento-item p { color: var(--color-body-text); font-size: 1rem; line-height: 1.6; margin: 0; }
+    
+    .bento-large { grid-column: span 2; grid-row: span 2; background: var(--color-primary); color: var(--color-white); }
+    .bento-large h3 { color: var(--color-white); font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.2; }
+    .bento-large p { color: rgba(255,255,255,0.9); font-size: 1.125rem; }
+    .bento-wide { grid-column: span 2; }
+    
+    @media (max-width: 900px) {
+      .bento-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .bento-large, .bento-wide { grid-column: span 1; grid-row: auto; }
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .service-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      padding: 2.5rem;
+      border-radius: 24px;
+      box-shadow: none;
+      transition: var(--transition-smooth);
+      border: 1px solid #E5E7EB;
+      text-align: left;
+      position: relative;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+    .icon-placeholder {
+      width: 48px;
+      height: 48px;
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+    }
+    .service-card h3 { color: var(--color-heading); font-size: 1.25rem; margin-bottom: 0.75rem; }
+    .service-card p { color: var(--color-body-text); margin-bottom: 1.5rem; }
+    .service-card .arrow-link { color: var(--color-primary); font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; }
+    /* === RESPONSIVE UTILITIES === */
+    .split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      /* Hero collapses to single column */
+      .hero {
+        grid-template-columns: 1fr !important;
+        padding-top: 7rem !important;
+        padding-bottom: 4rem !important;
+        gap: 2rem !important;
+      }
+      .hero-image-wrapper {
+        width: 100% !important;
+        margin-bottom: 0 !important;
+        aspect-ratio: 4/3 !important;
+      }
+      /* Page-hero editorial split collapses */
+      .page-hero {
+        grid-template-columns: 1fr !important;
+        padding-top: 6rem !important;
+        padding-bottom: 3rem !important;
+        min-height: unset !important;
+        gap: 2rem !important;
+      }
+      .page-hero-image img {
+        aspect-ratio: 16/9 !important;
+        border-radius: 16px !important;
+      }
+      /* Generic split grids */
+      .split-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+      .split-grid > div:last-child {
+        min-height: 280px !important;
+      }
+      /* Stats strip wraps */
+      .stats-section .container {
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+    }  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Dr. Narendra Bhatt</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" style="color: var(--color-primary); font-weight: 700;">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="clinical.html">Clinical</a></li>
+        <li><a href="research-hub.html">Research Hub</a></li>
+        <li><a href="industry.html">Industry Impact</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero fade-in">
+      <div class="hero-content">
+        <h1>Welcome, नमस्कार</h1>
+        <p>A Profile & Overview Of activities in the field of Ayurveda - Education, Research, Industry & My Clinical Practice. You will find here Publications & Presentations, Articles & Papers (research abstracts), Ideas & Views...</p>
+        <div class="hero-buttons">
+          <a href="contact.html" class="btn btn-primary">Do reach me to explore further</a>
+          <a href="research-hub.html" class="btn btn-outline">Explore Research</a>
+        </div>
+      </div>
+      
+      <div class="hero-image-container">
+        <div class="hero-image-wrapper">
+          <img src="DrNarendraBhatt.jpg" alt="Dr. Narendra Bhatt">
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS SECTION (Overlapping) -->
+    <section class="stats-section container fade-in">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <h3>40+</h3>
+          <p>Years Experience</p>
+        </div>
+        <div class="stat-item">
+          <h3>86+</h3>
+          <p>Publications</p>
+        </div>
+        <div class="stat-item">
+          <h3>Global</h3>
+          <p>Consulting Reach</p>
+        </div>
+        <div class="stat-item">
+          <h3>55</h3>
+          <p>Clinical Studies</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- LEGACY BENTO GRID -->
+    <section class="container fade-in" style="margin-top: 2rem;">
+      <div class="section-header">
+        <h2>A 40-Year Legacy of Impact</h2>
+        <p>Dr. Narendra Bhatt has spent four decades seamlessly integrating classical Ayurvedic philosophies with modern botanical and pharmacological sciences. His monumental work spans global consulting, high-level corporate leadership, and groundbreaking clinical research.</p>
+      </div>
+
+      <div class="bento-grid">
+        <div class="bento-item bento-large">
+          <h3 style="color: var(--color-white);">The Zandu Era & Corporate Leadership</h3>
+          <p>Serving as CEO of Zandu Pharmaceuticals (2003-2007), Dr. Bhatt reversed a decade of stagnation to achieve record-breaking double-digit growth. His 21 years in the pharmaceutical industry also included pivotal Honorary Advisor roles for global giants like Ranbaxy and Procter & Gamble, where he modernized traditional Ayurvedic formulations for the mass market.</p>
+        </div>
+        <div class="bento-item bento-wide">
+          <h3>Joint Indian Patent</h3>
+          <p>Secured a landmark joint Indian Patent for the treatment of Parkinson's Disease, solidifying his status as a leading innovator in Ayurvedic neurology and evidence-based holistic medicine.</p>
+        </div>
+        <div class="bento-item">
+          <h3>55+ Studies</h3>
+          <p>Coordinated over 55 rigorous clinical studies, establishing the highly innovative 'MATRIX Mode' for Ayurvedic product standardization.</p>
+        </div>
+        <div class="bento-item">
+          <h3>WHO Consultant</h3>
+          <p>Acted as a crucial consultant for the World Health Organization (Geneva) and the Global Research Alliance under the World Bank.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CSS MARQUEE -->
+    <div class="marquee-container">
+      <div class="marquee-content">
+        <span>AYURVEDA</span> &bull; <span>CLINICAL PRACTICE</span> &bull; <span>RESEARCH & ACADEMICS</span> &bull; <span>GLOBAL IMPACT</span> &bull; <span>INDUSTRY LEADERSHIP</span> &bull; <span>AYURVEDA</span> &bull; <span>CLINICAL PRACTICE</span> &bull; <span>RESEARCH & ACADEMICS</span> &bull; <span>GLOBAL IMPACT</span> &bull; <span>INDUSTRY LEADERSHIP</span>
+      </div>
+    </div>
+
+    <!-- SERVICES / CLINICAL OVERVIEW -->
+    <section class="section-padding container fade-in">
+      <div class="section-header">
+        <h2>Areas of Expertise</h2>
+        <p>Highlighting the core pillars of Dr. Bhatt's practice, from individual clinical consultations to global industry standardization.</p>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="icon-placeholder">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3>Clinical Practice</h3>
+          <p>Started clinical practice in 1988. Specializing in arthritis, women's disorders & infertility, digestive & inflammatory diseases.</p>
+          <a href="clinical.html" class="arrow-link">Explore <span style="font-family: monospace;">&rarr;</span></a>
+        </div>
+        <div class="service-card">
+          <div class="icon-placeholder">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h3>Academic Research</h3>
+          <p>Developed the innovative 'MATRIX Mode' for product development. Coordinated 55 clinical studies and holds a joint Indian patent.</p>
+          <a href="research-hub.html" class="arrow-link">Explore <span style="font-family: monospace;">&rarr;</span></a>
+        </div>
+        <div class="service-card">
+          <div class="icon-placeholder">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <h3>Industry Consulting</h3>
+          <p>Former CEO of Zandu Pharmaceuticals with over 21 years of industry leadership and consulting for top Ayurvedic brands.</p>
+          <a href="industry.html" class="arrow-link">Explore <span style="font-family: monospace;">&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLINICAL PHILOSOPHY SPLIT SECTION -->
+    <section class="container fade-in" style="margin-bottom: 8rem;">
+      <div class="split-grid" style="background: #FFFFFF; border-radius: 24px; padding: clamp(2rem, 5vw, 4rem); border: 1px solid #E5E7EB;">
+        <div>
+          <h2 style="margin-bottom: 1rem; font-size: var(--h2); line-height: 1.2;">A Totalistic Clinical Philosophy</h2>
+          <p style="color: var(--color-body-text); font-size: 1.125rem; line-height: 1.8; margin-bottom: 1.5rem;">Rather than treating isolated symptoms, Dr. Bhatt's methodology involves a profound inquiry into the causative factors of disease. By understanding a patient's unique constitution (Prakriti) and the precise stage of pathogenesis (Samprapti), treatments are meticulously customized.</p>
+          <ul style="color: var(--color-body-text); line-height: 1.8; padding-left: 1.5rem; margin-bottom: 2rem; font-weight: 500;">
+            <li style="margin-bottom: 0.5rem;">Customized Dietary Modifications</li>
+            <li style="margin-bottom: 0.5rem;">Specialized Lifestyle Counseling</li>
+            <li>Authentic, Target-Specific Therapies</li>
+          </ul>
+          <a href="clinical.html" class="btn btn-outline" style="border-color: var(--color-primary); color: var(--color-primary);">Explore Clinical Practice</a>
+        </div>
+        <div style="position: relative; border-radius: 20px; overflow: hidden; height: 100%; min-height: 400px;">
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Clinical Philosophy" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);"></div>
+          <div style="position: absolute; bottom: 2rem; left: 2rem; color: var(--color-white); right: 2rem;">
+            <h3 style="font-size: 1.75rem; margin-bottom: 0.5rem; text-shadow: 0 2px 10px rgba(0,0,0,0.5); color: var(--color-white);">Diagnostic Precision</h3>
+            <p style="margin: 0; opacity: 0.9; text-shadow: 0 2px 10px rgba(0,0,0,0.5); color: var(--color-white);">Healing that transcends generic prescriptions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CRIA & INTERNATIONAL IMPACT -->
+    <section class="section-padding container fade-in" style="background-color: var(--color-background); border-radius: 24px; padding: clamp(3rem, 6vw, 5rem); margin-bottom: 8rem; text-align: center; border: 1px solid #E5E7EB;">
+      <h2 style="margin-bottom: 1rem; font-size: var(--h2);">Global Standardization & CRIA</h2>
+      <p style="max-width: 800px; margin: 0 auto 4rem; color: var(--color-body-text); font-size: 1.125rem; line-height: 1.8;">As a foundational figure in the Centre for Research and Innovation in Ayurveda (CRIA), Dr. Bhatt actively works to dismantle silos between Western allopathy and Eastern holistic medicine on an international scale.</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; text-align: left;">
+        <div style="background: #FFFFFF; padding: 2.5rem; border-radius: 16px; border: 1px solid #E5E7EB;">
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Kiel University, Germany</h3>
+          <p style="color: var(--color-body-text); font-size: 1rem; line-height: 1.6; margin: 0;">Chaired international panels and expert round tables focusing on the future of Integrative Medicine.</p>
+        </div>
+        <div style="background: #FFFFFF; padding: 2.5rem; border-radius: 16px; border: 1px solid #E5E7EB;">
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Columbia University, USA</h3>
+          <p style="color: var(--color-body-text); font-size: 1rem; line-height: 1.6; margin: 0;">Served as an expert consultant, leading heavy discussions on the intersection of Ayurveda and Oncology.</p>
+        </div>
+        <div style="background: #FFFFFF; padding: 2.5rem; border-radius: 16px; border: 1px solid #E5E7EB;">
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">INDRA Milan, Italy</h3>
+          <p style="color: var(--color-body-text); font-size: 1rem; line-height: 1.6; margin: 0;">Delivered sweeping keynote addresses on managing Oncogenic diseases through traditional methodologies.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- THEMATIC QUOTE -->
+    <section class="container fade-in" style="margin-bottom: 6rem;">
+      <div style="background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(13, 27, 0, 0.85) 100%), url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80'); background-size: cover; background-position: center; background-attachment: fixed; padding: clamp(4rem, 10vw, 8rem) 2rem; border-radius: 24px; text-align: center; color: var(--color-white); box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
+        <h2 style="font-size: clamp(1.75rem, 4vw, 2.75rem); font-family: var(--font-heading); font-style: italic; font-weight: 400; max-width: 1000px; margin: 0 auto 2.5rem; line-height: 1.4; color: var(--color-white); text-shadow: 0 4px 15px rgba(0,0,0,0.5);">"Either Virtue or Friendship or Wealth or Honour or at least Practice &mdash; the Profession of Healing is NEVER FUTILE."</h2>
+        <a href="contact.html" class="btn" style="background: var(--color-white); color: var(--color-primary); font-weight: 700; padding: 1rem 2rem;">Connect with the Clinic</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Dr. Narendra Bhatt</h3>
+        <p>A leading Ayurvedic physician, consultant, and researcher dedicated to bridging ancient wisdom with modern scientific validation.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="about.html">About Dr. Bhatt</a></li>
+          <li><a href="clinical.html">Clinical Practice</a></li>
+          <li><a href="research-hub.html">Research Hub</a></li>
+          <li><a href="industry.html">Industry Impact</a></li>
+          <li><a href="contact.html">Get in Touch</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p>Email: info@drnarendrabhatt.in</p>
+        <p>Location: Parel (East), Mumbai, India</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Dr. Narendra Bhatt. All rights reserved.</p>
+      <p>Designed with Semantic HTML5 & Vanilla CSS</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const navLinks = document.getElementById('navLinks');
+      mobileBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const lines = document.querySelectorAll('.hamburger-line');
+        if (navLinks.classList.contains('active')) {
+          lines[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+          lines[1].style.opacity = '0';
+          lines[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+        } else {
+          lines[0].style.transform = 'none';
+          lines[1].style.opacity = '1';
+          lines[2].style.transform = 'none';
+        }
+      });
+      
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>
+
+
+
+
