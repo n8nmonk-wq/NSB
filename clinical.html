@@ -8,192 +8,109 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="variables.css">
-  
   <style>
-    /* Base Layout Styles */
-    .site-header { position: sticky; top: 0; z-index: 100; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--color-light-gray); padding: 1rem 0; transition: var(--transition-smooth); }
-    .nav-container { width: var(--container-width); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-family: var(--font-heading); font-size: var(--h4); color: var(--color-primary); font-weight: 700; letter-spacing: 0.5px; }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a { font-weight: 500; color: var(--color-text); font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 1px; }
-    .nav-links a:hover { color: var(--color-secondary); }
-    .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
-    .hamburger-line { display: block; width: 24px; height: 2px; background-color: var(--color-primary); margin: 5px 0; transition: var(--transition-smooth); }
-    @media (max-width: 900px) {
-      .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--color-background); flex-direction: column; align-items: center; gap: 0; max-height: 0; overflow: hidden; transition: max-height 0.4s ease; border-bottom: 1px solid transparent; }
-      .nav-links.active { max-height: 500px; border-bottom-color: var(--color-light-gray); }
-      .nav-links li { width: 100%; text-align: center; }
-      .nav-links a { display: block; padding: 1.5rem; border-top: 1px solid var(--color-light-gray); }
-      .mobile-menu-btn { display: block; }
+    /* === PAGE HERO === */
+    .page-hero-wrap {
+      background: linear-gradient(135deg, #EAF0EC 0%, #F0F4F1 60%, #E8EFE9 100%);
+      width: 100vw; position: relative; left: 50%; right: 50%;
+      margin-left: -50vw; margin-right: -50vw; overflow: hidden;
     }
-    
-    .site-footer { background-color: var(--color-footer-bg); color: var(--color-footer-text); padding: clamp(3rem, 8vw, 6rem) 0 2rem; }
-    .footer-grid { width: var(--container-width); margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 3rem; margin-bottom: 4rem; }
-    .footer-col h3 { color: var(--color-footer-text); font-size: var(--h4); margin-bottom: 1.5rem; }
-    .footer-col p { color: rgba(255, 255, 255, 0.8); font-size: var(--text-sm); }
-    .footer-links { list-style: none; }
-    .footer-links li { margin-bottom: 0.75rem; }
-    .footer-links a { color: rgba(255, 255, 255, 0.8); font-size: var(--text-sm); }
-    .footer-links a:hover { color: var(--color-primary); padding-left: 5px; }
-    .footer-bottom { width: var(--container-width); margin: 0 auto; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: clamp(0.75rem, 0.5vw + 0.7rem, 0.875rem); color: rgba(255, 255, 255, 0.6); }
-
-    /* Clinical Specific Styles */
-        /* Editorial Hero Styles */
     .page-hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      min-height: 70vh;
-      max-width: 1440px;
-      margin: 0 auto;
-      padding: 0 5vw;
-      gap: 4rem;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; min-height: 70vh; max-width: 1440px;
+      margin: 0 auto; padding: 5rem 5vw; gap: 4rem;
     }
-    .page-hero-content {
-      color: #111827;
-    }
-    .page-hero-content h1 {
-      font-size: clamp(3rem, 6vw, 5rem);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-      font-family: var(--font-heading);
-    }
-    .page-hero-content p {
-      color: #4B5563;
-      font-size: 1.25rem;
-      line-height: 1.6;
-      max-width: 80%;
-    }
-    .page-hero-image img {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      border-radius: 16px 120px 16px 16px;
-      box-shadow: 0 20px 40px -10px rgba(30, 63, 51, 0.15);
-    }
-    @media (max-width: 800px) {
-      .page-hero { grid-template-columns: 1fr; text-align: center; padding-top: 6rem; padding-bottom: 4rem; }
-      .page-hero-content p { max-width: 100%; margin: 0 auto; }
-    }
+    .page-hero-content h1 { font-size: clamp(2.8rem, 5.5vw, 4.5rem); line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+    .page-hero-content p { color: #4B5563; font-size: 1.1rem; line-height: 1.75; max-width: 85%; font-style: italic; }
+    .page-hero-image img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 16px 100px 16px 16px; box-shadow: 0 24px 48px -12px rgba(30,63,51,0.15); transition: transform 8s ease; }
+    .page-hero-image:hover img { transform: scale(1.03); }
+    @media (max-width: 800px) { .page-hero { grid-template-columns: 1fr; padding-top: 6rem; padding-bottom: 4rem; } }
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-bottom: 4rem;
+    /* === SERVICE CARDS === */
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
+    .service-card {
+      background: rgba(255,255,255,0.9);
+      padding: 2.5rem; border-radius: 20px; border: 1px solid #E5E7EB;
+      text-align: left; position: relative; overflow: hidden;
+      transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease;
     }
-    .service-card { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px);
-      padding: 2.5rem;
-      border-radius: 24px;
-      box-shadow: none;
-      transition: var(--transition-smooth);
-      border: 1px solid #E5E7EB;
-      text-align: left;
+    .service-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px; background: linear-gradient(90deg, var(--color-primary), var(--color-accent)); transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 18px 48px -12px rgba(30,63,51,0.14); border-color: rgba(30,63,51,0.15); }
+    .service-card:hover::after { width: 100%; }
+    .icon-placeholder { width: 44px; height: 44px; color: var(--color-primary); display: flex; align-items: center; font-size: 1.5rem; margin-bottom: 1rem; }
+
+    /* === APPOINTMENT BANNER === */
+    .appointment-banner {
+      background: linear-gradient(145deg, #1E3F33 0%, #163026 100%);
+      color: var(--color-white); padding: 4rem;
+      border-radius: 24px; text-align: center; margin-bottom: 5rem;
+      box-shadow: 0 24px 48px -12px rgba(30,63,51,0.3);
+      position: relative; overflow: hidden;
+    }
+    .appointment-banner::before {
+      content: '';
+      position: absolute; top: -40%; right: -10%;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(212,175,55,0.1), transparent 65%);
+      pointer-events: none;
+    }
+    .appointment-banner h2 { color: var(--color-white); margin-bottom: 1rem; position: relative; }
+    .appointment-banner p { color: rgba(255,255,255,0.85); margin-bottom: 0; position: relative; }
+    .btn-solid {
+      display: inline-block; padding: 1rem 2.5rem;
+      background-color: var(--color-white); color: var(--color-primary) !important;
+      border-radius: 50px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.08em; margin-top: 1.75rem;
+      transition: transform 0.26s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.26s ease, background 0.2s ease;
       position: relative;
     }
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-hover);
+    .btn-solid:hover { background: var(--color-accent); color: var(--color-text) !important; transform: translateY(-3px) scale(1.025); box-shadow: 0 14px 32px -6px rgba(212,175,55,0.35); }
+
+    /* === PROCESS STEPS === */
+    .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+    .process-card {
+      background: rgba(255,255,255,0.9); padding: 3rem 2rem;
+      border-radius: 20px; border: 1px solid #E5E7EB; text-align: left; position: relative;
+      transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
     }
-    .icon-placeholder {
-      width: 48px;
-      height: 48px;
-      color: var(--color-primary);
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
+    .process-card:hover { transform: translateY(-6px); box-shadow: 0 18px 48px -12px rgba(30,63,51,0.12); }
+    .step-num {
+      width: 48px; height: 48px;
+      background: rgba(30,63,51,0.08); color: var(--color-primary);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; font-weight: 700; margin-bottom: 1.5rem;
+      border: 1.5px solid rgba(30,63,51,0.12);
     }
-    
-    .appointment-banner {
-      background-color: var(--color-primary);
-      color: var(--color-white);
-      padding: 4rem;
-      border-radius: 24px;
-      text-align: center;
-      margin-bottom: 5rem;
-      box-shadow: 0 20px 40px rgba(103, 61, 230, 0.2);
+
+    /* === FOCUS AREAS === */
+    .focus-areas { margin-bottom: 6rem; background: var(--color-background); border-radius: 24px; padding: clamp(3rem, 5vw, 5rem); border: 1px solid #E5E7EB; }
+    .focus-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .focus-card {
+      background: rgba(255,255,255,0.9); padding: 2.5rem;
+      border-radius: 16px; border: 1px solid #E5E7EB;
+      transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease;
     }
-    
-    /* CSS Marquee Divider */
-    .marquee-container { width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; background: #F9FAFB; border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB; padding: 1.5rem 0; overflow: hidden; z-index: 1; margin-top: 4rem; margin-bottom: 6rem; }
-    .marquee-content { display: flex; white-space: nowrap; animation: marquee 20s linear infinite; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 1.1rem; color: #111827; }
-    .marquee-content span {
-      margin: 0 2rem;
-    }
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .appointment-banner h2 { color: var(--color-white); margin-bottom: 1rem; }
-    .btn-solid {
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      background-color: var(--color-white);
-      color: var(--color-primary);
-      border-radius: var(--border-radius);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 1.5rem;
-      transition: var(--transition-smooth);
-    }
-    .btn-solid:hover {
-      background-color: #163026;
-      color: #FFFFFF !important;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px -4px rgba(30, 63, 51, 0.35);
-    }
-    /* === RESPONSIVE UTILITIES === */
-    .split-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
+    .focus-card:hover { transform: translateY(-5px); box-shadow: 0 14px 40px -10px rgba(30,63,51,0.12); border-color: rgba(30,63,51,0.12); }
+    .focus-card.wide { grid-column: 1 / -1; }
+
     @media (max-width: 768px) {
-      /* Page-hero editorial split collapses */
-      .page-hero {
-        grid-template-columns: 1fr !important;
-        padding-top: 6rem !important;
-        padding-bottom: 3rem !important;
-        min-height: unset !important;
-        gap: 2rem !important;
-        text-align: center;
-      }
-      .page-hero-content p { max-width: 100% !important; margin: 0 auto; }
-      .page-hero-image img {
-        aspect-ratio: 16/9 !important;
-        border-radius: 16px !important;
-      }
-      /* Generic split grids */
-      .split-grid {
-        grid-template-columns: 1fr !important;
-        gap: 2rem !important;
-      }
-      .split-grid > div:last-child {
-        min-height: 280px !important;
-      }
-    }  </style>
+      .split-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+      .focus-card.wide { grid-column: auto; }
+    }
+  </style>
 </head>
 <body>
 
-  <header class="site-header">
+  <header class="site-header" id="siteHeader">
     <div class="nav-container">
       <a href="index.html" class="logo">Dr. Narendra Bhatt</a>
       <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
       </button>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="clinical.html" style="color: var(--color-primary); font-weight: 700;">Clinical</a></li>
+        <li><a href="clinical.html" class="active">Clinical</a></li>
         <li><a href="research-hub.html">Research Hub</a></li>
         <li><a href="industry.html">Industry Impact</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -202,114 +119,132 @@
   </header>
 
   <main>
-        <div style="background-color: var(--color-secondary); width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; overflow: hidden; margin-bottom: 4rem;">
-      <section class="page-hero fade-in">
-        <div class="page-hero-content">
+    <div class="page-hero-wrap">
+      <section class="page-hero">
+        <div class="page-hero-content slide-left">
+          <span class="section-label">Since 1988</span>
           <h1>Clinical Practice</h1>
-          <p>"Either Virtue or Friendship or Wealth or Honour or at least Practice -- the Profession of Healing is NEVER FUTILE."</p>
+          <p>"Either Virtue or Friendship or Wealth or Honour or at least Practice — the Profession of Healing is NEVER FUTILE."</p>
         </div>
-        <div class="page-hero-image">
-          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Clinical Practice" />
+        <div class="page-hero-image slide-right">
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Clinical Practice">
         </div>
       </section>
     </div>
 
-    <section class="container fade-in">
-      <div style="max-width: 800px; margin: 0 auto 4rem; text-align: center;">
-        <h2 style="margin-bottom: 1.5rem; font-size: var(--h2);">A Tradition of Diagnostic Precision</h2>
-        <p style="font-size: 1.125rem; color: #475569; line-height: 1.8; margin-bottom: 1.5rem;">Dr. Narendra Bhatt’s practice focuses heavily on understanding the patient's unique constitution (Prakriti) and the exact stage of the disease pathogenesis (Samprapti). Inheriting profound clinical acumen from his father, Vaidya D. S. Antarkar, he applies a deep, totalistic approach where the goal is not merely symptom suppression, but the complete restoration of systemic harmony.</p>
-        <p style="font-size: 1.125rem; color: #475569; line-height: 1.8;">The clinic successfully manages a wide range of complex ailments. Treatment protocols prioritize customized dietary modifications, specialized lifestyle counseling, and meticulously formulated, authentic Ayurvedic therapies over generic pharmacological interventions.</p>
+    <section class="container fade-in" style="padding-top: 5rem;">
+      <div class="section-header">
+        <span class="section-label">Diagnostic Precision</span>
+        <h2>A Tradition of Diagnostic Precision</h2>
+        <p style="max-width: 780px; margin: 0 auto; color: #475569; font-size: 1.1rem; line-height: 1.8;">Dr. Bhatt's practice focuses heavily on understanding the patient's unique constitution (Prakriti) and the exact stage of disease pathogenesis (Samprapti). Inheriting profound clinical acumen from his father, Vaidya D. S. Antarkar, he applies a deep, totalistic approach — the goal is not merely symptom suppression, but complete restoration of systemic harmony.</p>
       </div>
 
-      <div class="services-grid">
+      <div class="services-grid stagger-grid" style="margin-top: 3rem;">
         <div class="service-card">
-          <div class="icon-placeholder">T</div>
+          <div class="icon-placeholder">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+          </div>
           <h3>Totalistic Approach</h3>
-          <p>Careful inquiry into causative factors, focusing on lifestyle disorders, diabetes, and hypertension.</p>
+          <p style="color: var(--color-body-text); margin: 0; font-size: 0.97rem;">Careful inquiry into causative factors, focusing on lifestyle disorders, diabetes, and hypertension.</p>
         </div>
         <div class="service-card">
-          <div class="icon-placeholder">S</div>
+          <div class="icon-placeholder">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
           <h3>Specialized Care</h3>
-          <p>Expertise in treating arthritis, women's disorders & infertility, digestive & inflammatory diseases.</p>
+          <p style="color: var(--color-body-text); margin: 0; font-size: 0.97rem;">Expertise in treating arthritis, women's disorders & infertility, digestive & inflammatory diseases.</p>
         </div>
         <div class="service-card">
-          <div class="icon-placeholder">C</div>
+          <div class="icon-placeholder">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
           <h3>Chronic Dysfunctions</h3>
-          <p>Targeted management of liver & spleen dysfunctions, skin ailments, and respiratory diseases.</p>
+          <p style="color: var(--color-body-text); margin: 0; font-size: 0.97rem;">Targeted management of liver & spleen dysfunctions, skin ailments, and respiratory diseases.</p>
         </div>
       </div>
-      
-      <!-- CSS MARQUEE -->
+
+      <!-- MARQUEE -->
       <div class="marquee-container">
         <div class="marquee-content">
-          <span>ARTHRITIS</span> &bull; <span>WOMEN'S DISORDERS</span> &bull; <span>DIGESTIVE DISEASES</span> &bull; <span>LIFESTYLE MANAGEMENT</span> &bull; <span>ARTHRITIS</span> &bull; <span>WOMEN'S DISORDERS</span> &bull; <span>DIGESTIVE DISEASES</span> &bull; <span>LIFESTYLE MANAGEMENT</span>
+          <span>ARTHRITIS</span> <span class="bull">&bull;</span>
+          <span>WOMEN'S DISORDERS</span> <span class="bull">&bull;</span>
+          <span>DIGESTIVE DISEASES</span> <span class="bull">&bull;</span>
+          <span>LIFESTYLE MANAGEMENT</span> <span class="bull">&bull;</span>
+          <span>ARTHRITIS</span> <span class="bull">&bull;</span>
+          <span>WOMEN'S DISORDERS</span> <span class="bull">&bull;</span>
+          <span>DIGESTIVE DISEASES</span> <span class="bull">&bull;</span>
+          <span>LIFESTYLE MANAGEMENT</span> <span class="bull">&bull;</span>
         </div>
       </div>
-      
+
+      <!-- APPOINTMENT BANNER -->
       <div class="appointment-banner fade-in">
         <h2>Schedule a Consultation</h2>
-        <p>"Thou Art of healing is a Virtue." - Dr. Narendra Bhatt started his clinical practice in 1988, heavily influenced by his father, Vaidya D. S. Antarkar.</p>
+        <p>"Thou Art of healing is a Virtue." — Dr. Narendra Bhatt started his clinical practice in 1988, heavily influenced by his father, Vaidya D. S. Antarkar.</p>
         <a href="contact.html" class="btn-solid">Contact Clinic</a>
       </div>
-      <!-- THE PATIENT JOURNEY (Process) -->
-      <div style="margin-bottom: 6rem;">
-        <div style="text-align: center; margin-bottom: 4rem;">
-          <h2 style="font-size: var(--h2);">The Path to Systemic Harmony</h2>
-          <p style="max-width: 600px; margin: 0 auto; color: var(--color-body-text); font-size: 1.125rem;">Our clinical methodology transcends standard consultation.</p>
+
+      <!-- PROCESS STEPS -->
+      <div style="margin-bottom: 6rem;" class="fade-in">
+        <div class="section-header">
+          <span class="section-label">Methodology</span>
+          <h2>The Path to Systemic Harmony</h2>
+          <p>Our clinical methodology transcends standard consultation.</p>
         </div>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-          <div style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); padding: 3rem 2rem; border-radius: 20px; border: 1px solid #E5E7EB; text-align: left; position: relative;">
-            <div style="width: 48px; height: 48px; background: rgba(0, 135, 25, 0.1); color: var(--color-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;">1</div>
-            <h3 style="color: var(--color-heading); margin-bottom: 1rem;">Deep Inquiry</h3>
-            <p style="color: var(--color-body-text); line-height: 1.6;">Comprehensive dialogue to map the patient's lifestyle, history, and physiological patterns.</p>
+        <div class="process-grid stagger-grid">
+          <div class="process-card">
+            <div class="step-num">1</div>
+            <h3 style="color: var(--color-heading); margin-bottom: 0.75rem;">Deep Inquiry</h3>
+            <p style="color: var(--color-body-text); line-height: 1.65; margin: 0; font-size: 0.97rem;">Comprehensive dialogue to map the patient's lifestyle, history, and physiological patterns.</p>
           </div>
-          <div style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); padding: 3rem 2rem; border-radius: 20px; border: 1px solid #E5E7EB; text-align: left; position: relative;">
-            <div style="width: 48px; height: 48px; background: rgba(0, 135, 25, 0.1); color: var(--color-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;">2</div>
-            <h3 style="color: var(--color-heading); margin-bottom: 1rem;">Root Cause Analysis</h3>
-            <p style="color: var(--color-body-text); line-height: 1.6;">Identifying the 'Samprapti' (pathogenesis) and treating the origin, not just the symptom.</p>
+          <div class="process-card">
+            <div class="step-num">2</div>
+            <h3 style="color: var(--color-heading); margin-bottom: 0.75rem;">Root Cause Analysis</h3>
+            <p style="color: var(--color-body-text); line-height: 1.65; margin: 0; font-size: 0.97rem;">Identifying the 'Samprapti' (pathogenesis) and treating the origin, not just the symptom.</p>
           </div>
-          <div style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); padding: 3rem 2rem; border-radius: 20px; border: 1px solid #E5E7EB; text-align: left; position: relative;">
-            <div style="width: 48px; height: 48px; background: rgba(0, 135, 25, 0.1); color: var(--color-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;">3</div>
-            <h3 style="color: var(--color-heading); margin-bottom: 1rem;">Holistic Prescription</h3>
-            <p style="color: var(--color-body-text); line-height: 1.6;">Targeted therapies combined with actionable dietary and lifestyle modifications.</p>
+          <div class="process-card">
+            <div class="step-num">3</div>
+            <h3 style="color: var(--color-heading); margin-bottom: 0.75rem;">Holistic Prescription</h3>
+            <p style="color: var(--color-body-text); line-height: 1.65; margin: 0; font-size: 0.97rem;">Targeted therapies combined with actionable dietary and lifestyle modifications.</p>
           </div>
         </div>
       </div>
 
-      <!-- SPECIALIZED FOCUS AREAS (Bento Grid) -->
-      <div style="margin-bottom: 6rem; background: var(--color-background); border-radius: 24px; padding: clamp(3rem, 5vw, 5rem); border: 1px solid #E5E7EB;">
-        <h2 style="font-size: var(--h2); text-align: center; margin-bottom: 3rem;">Clinical Focus Areas</h2>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
-          <div style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); padding: 2.5rem; border-radius: 20px; border: 1px solid #E5E7EB; grid-column: 1 / -1; text-align: left;">
-            <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Lifestyle Disorders & Metabolic Syndrome</h3>
-            <p style="color: var(--color-body-text); font-size: 1.125rem; line-height: 1.8; margin: 0;">Applying classical Ayurvedic intelligence to modern ailments. Dr. Bhatt specializes in the comprehensive management of Diabetes, Hypertension, and chronic lifestyle-induced conditions through non-invasive, systematic regulation.</p>
+      <!-- CLINICAL FOCUS AREAS -->
+      <div class="focus-areas fade-in">
+        <div class="section-header" style="margin-bottom: 2.5rem;">
+          <h2>Clinical Focus Areas</h2>
+        </div>
+        <div class="focus-grid stagger-grid">
+          <div class="focus-card wide">
+            <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Lifestyle Disorders & Metabolic Syndrome</h3>
+            <p style="color: var(--color-body-text); font-size: 1.05rem; line-height: 1.8; margin: 0;">Applying classical Ayurvedic intelligence to modern ailments. Dr. Bhatt specializes in comprehensive management of Diabetes, Hypertension, and chronic lifestyle-induced conditions through non-invasive, systematic regulation.</p>
           </div>
-          <div style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); padding: 2.5rem; border-radius: 20px; border: 1px solid #E5E7EB; text-align: left;">
-            <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Women's Disorders & Infertility</h3>
-            <p style="color: var(--color-body-text); line-height: 1.6; margin: 0;">Providing nuanced, holistic support for complex gynecological challenges and fertility optimization.</p>
+          <div class="focus-card">
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.75rem;">Women's Disorders & Infertility</h3>
+            <p style="color: var(--color-body-text); line-height: 1.65; margin: 0; font-size: 0.97rem;">Nuanced, holistic support for complex gynecological challenges and fertility optimization.</p>
           </div>
-          <div style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); padding: 2.5rem; border-radius: 20px; border: 1px solid #E5E7EB; text-align: left;">
-            <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Chronic Arthritis & Inflammation</h3>
-            <p style="color: var(--color-body-text); line-height: 1.6; margin: 0;">Drawing from early post-graduate thesis work on Aamavaata (Rheumatoid Arthritis) to offer deep, lasting relief.</p>
+          <div class="focus-card">
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.75rem;">Chronic Arthritis & Inflammation</h3>
+            <p style="color: var(--color-body-text); line-height: 1.65; margin: 0; font-size: 0.97rem;">Drawing from post-graduate thesis work on Aamavaata (Rheumatoid Arthritis) to offer deep, lasting relief.</p>
           </div>
-          <div style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); padding: 2.5rem; border-radius: 20px; border: 1px solid #E5E7EB; text-align: left;">
-            <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Liver & Spleen Dysfunctions</h3>
-            <p style="color: var(--color-body-text); line-height: 1.6; margin: 0;">Restoring vital organ functionality through rigorous, customized pharmacological protocols.</p>
+          <div class="focus-card">
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.75rem;">Liver & Spleen Dysfunctions</h3>
+            <p style="color: var(--color-body-text); line-height: 1.65; margin: 0; font-size: 0.97rem;">Restoring vital organ functionality through rigorous, customized pharmacological protocols.</p>
           </div>
         </div>
       </div>
 
       <!-- INTEGRATIVE APPROACH SPLIT -->
-      <div style="margin-bottom: 6rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; align-items: center;">
-        <div>
+      <div class="split-grid fade-in" style="margin-bottom: 6rem;">
+        <div class="slide-left">
+          <span class="section-label">Integration</span>
           <h2 style="font-size: var(--h2); margin-bottom: 1.5rem;">An Integrative Healing Philosophy</h2>
-          <p style="color: var(--color-body-text); font-size: 1.125rem; line-height: 1.8; margin-bottom: 1.5rem;">The clinic does not operate in isolation from modern medical realities. With a deep foundation in both B.Sc. (Botany) and M.D. Ayurveda, Dr. Bhatt represents a unique bridge between ancient textual authority and modern scientific validation.</p>
-          <p style="color: var(--color-body-text); font-size: 1.125rem; line-height: 1.8;">Patients benefit from therapies that are completely authentic to traditional wisdom, yet comprehensively understood through a modern botanical and pharmacological lens.</p>
+          <p style="color: var(--color-body-text); font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">The clinic does not operate in isolation from modern medical realities. With a deep foundation in both B.Sc. (Botany) and M.D. Ayurveda, Dr. Bhatt represents a unique bridge between ancient textual authority and modern scientific validation.</p>
+          <p style="color: var(--color-body-text); font-size: 1.1rem; line-height: 1.8;">Patients benefit from therapies completely authentic to traditional wisdom, yet comprehensively understood through a modern botanical and pharmacological lens.</p>
         </div>
-        <div style="border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
-          <img src="https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?auto=format&fit=crop&w=800&q=80" alt="Integrative Medicine" style="width: 100%; height: auto; display: block;">
+        <div style="border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.12);" class="slide-right">
+          <img src="https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?auto=format&fit=crop&w=800&q=80" alt="Integrative Medicine" style="width: 100%; height: 100%; object-fit: cover; display: block; min-height: 380px;">
         </div>
       </div>
     </section>
@@ -317,29 +252,13 @@
 
   <footer class="site-footer">
     <div class="footer-grid">
-      <div class="footer-col">
-        <h3>Dr. Narendra Bhatt</h3>
-        <p>A leading Ayurvedic physician, consultant, and researcher dedicated to bridging ancient wisdom with modern scientific validation.</p>
-      </div>
-      <div class="footer-col">
-        <h3>Quick Links</h3>
-        <ul class="footer-links">
-          <li><a href="about.html">About Dr. Bhatt</a></li>
-          <li><a href="clinical.html">Clinical Practice</a></li>
-          <li><a href="research-hub.html">Research Hub</a></li>
-          <li><a href="industry.html">Industry Impact</a></li>
-          <li><a href="contact.html">Get in Touch</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h3>Contact</h3>
-        <p>Email: info@drnarendrabhatt.in</p>
-        <p>Location: Parel (East), Mumbai, India</p>
-      </div>
+      <div class="footer-col"><h3>Dr. Narendra Bhatt</h3><p>A leading Ayurvedic physician, consultant, and researcher dedicated to bridging ancient wisdom with modern scientific validation.</p></div>
+      <div class="footer-col"><h3>Quick Links</h3><ul class="footer-links"><li><a href="about.html">About Dr. Bhatt</a></li><li><a href="clinical.html">Clinical Practice</a></li><li><a href="research-hub.html">Research Hub</a></li><li><a href="industry.html">Industry Impact</a></li><li><a href="contact.html">Get in Touch</a></li></ul></div>
+      <div class="footer-col"><h3>Contact</h3><p>Email: info@drnarendrabhatt.in</p><p>Location: Parel (East), Mumbai, India</p></div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2026 Dr. Narendra Bhatt. All rights reserved.</p>
-      <p>Designed with Semantic HTML5 & Vanilla CSS</p>
+      <p>Designed with Semantic HTML5 &amp; Vanilla CSS</p>
     </div>
   </footer>
 
@@ -350,33 +269,17 @@
       mobileBtn.addEventListener('click', () => {
         navLinks.classList.toggle('active');
         const lines = document.querySelectorAll('.hamburger-line');
-        if (navLinks.classList.contains('active')) {
-          lines[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-          lines[1].style.opacity = '0';
-          lines[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-        } else {
-          lines[0].style.transform = 'none';
-          lines[1].style.opacity = '1';
-          lines[2].style.transform = 'none';
-        }
+        const open = navLinks.classList.contains('active');
+        lines[0].style.transform = open ? 'rotate(45deg) translate(5px, 5px)' : 'none';
+        lines[1].style.opacity = open ? '0' : '1';
+        lines[2].style.transform = open ? 'rotate(-45deg) translate(5px, -5px)' : 'none';
       });
+      window.addEventListener('scroll', () => document.getElementById('siteHeader').classList.toggle('scrolled', window.scrollY > 20), { passive: true });
       const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            obs.unobserve(entry.target);
-          }
-        });
+        entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); obs.unobserve(entry.target); } });
       }, { threshold: 0.1 });
-      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+      document.querySelectorAll('.fade-in, .slide-left, .slide-right, .stagger-grid').forEach(el => observer.observe(el));
     });
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
