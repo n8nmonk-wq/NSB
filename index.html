@@ -1179,6 +1179,8 @@
       min-height: 190px;
       border: 1px solid transparent;
       border-radius: var(--radius);
+      padding: clamp(1.2rem, 2.6vw, 1.8rem);
+      column-gap: clamp(1.2rem, 4vw, 3.2rem);
       transition: border-color 0.35s ease, background 0.35s ease, transform 0.35s var(--ease);
     }
 
@@ -1190,7 +1192,7 @@
 
     .time-meta {
       position: relative;
-      padding: 1.4rem 2rem 1.4rem 0;
+      padding: 0 2rem 0 0;
     }
 
     .time-meta::after {
@@ -1225,7 +1227,7 @@
     }
 
     .time-body {
-      padding: 1.35rem 1.5rem 1.35rem 2.6rem;
+      padding: 0 0 0 1.4rem;
     }
 
     .time-body h3 {
@@ -1380,6 +1382,56 @@
     .model-label span {
       font-size: 0.82rem;
       color: var(--muted);
+    }
+
+    .matrix-stack{
+      position:absolute;
+      inset:5% 2% 16%;
+      transform-style:preserve-3d;
+      transform:rotateX(calc(58deg + var(--my) * -6deg)) rotateZ(calc(-18deg + var(--mx) * 8deg));
+      transition:transform .18s ease-out;
+    }
+    .matrix-layer{
+      position:absolute;
+      left:8%;
+      right:8%;
+      min-height:92px;
+      border:1px solid rgba(16,32,24,.16);
+      border-radius:34px 12px 34px 12px;
+      background:linear-gradient(135deg,rgba(255,253,248,.96),rgba(233,240,231,.76));
+      box-shadow:0 24px 60px rgba(16,32,24,.12);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      padding:1rem 1.2rem;
+      color:var(--ink);
+    }
+    .matrix-layer:nth-child(1){top:0;transform:translateZ(130px)}
+    .matrix-layer:nth-child(2){top:24%;transform:translateZ(86px)}
+    .matrix-layer:nth-child(3){top:48%;transform:translateZ(42px)}
+    .matrix-layer:nth-child(4){top:72%;transform:translateZ(0)}
+    .matrix-layer small{
+      color:var(--gold);
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-size:.66rem;
+    }
+    .matrix-layer strong{
+      font-family:var(--serif);
+      font-size:clamp(1rem,1.6vw,1.35rem);
+      line-height:1.05;
+    }
+    .matrix-axis{
+      position:absolute;
+      left:50%;
+      top:4%;
+      bottom:4%;
+      width:2px;
+      background:linear-gradient(var(--gold),rgba(47,123,89,.7));
+      transform:translateX(-50%) translateZ(150px);
+      box-shadow:0 0 0 7px rgba(189,138,44,.08);
     }
 
     .quote-band {
@@ -2089,6 +2141,251 @@
       }
     }
   </style>
+  <style>
+    /* NSB personal brand direction: editorial, portrait-led, authored. */
+    .home-hero{
+      min-height:calc(100vh - 78px);
+      padding:clamp(3.4rem,7vw,6.8rem) 0 clamp(2.8rem,6vw,5rem);
+      background:
+        linear-gradient(90deg,rgba(255,253,248,.98) 0 55%,rgba(245,241,232,.72) 55% 100%),
+        radial-gradient(circle at 72% 12%,rgba(189,138,44,.18),transparent 26rem);
+    }
+    .home-shell{
+      grid-template-columns:minmax(0,.9fr) minmax(430px,.74fr);
+      align-items:center;
+      gap:clamp(2.6rem,6vw,6rem);
+    }
+    .home-title{
+      max-width:8.5ch;
+      font-size:clamp(4.8rem,8.8vw,9.4rem);
+      letter-spacing:0;
+    }
+    .home-title .small-word{
+      margin-bottom:.2rem;
+      font-size:clamp(.82rem,1vw,1rem);
+      letter-spacing:.22em;
+      color:var(--gold);
+    }
+    .home-lede-row{
+      max-width:680px;
+      gap:1.35rem;
+    }
+    .hero-text{
+      font-size:clamp(1.08rem,1.45vw,1.28rem);
+      color:rgba(38,52,45,.82);
+    }
+    .home-proof{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:.8rem;
+    }
+    .home-proof span{
+      min-height:104px;
+      border-radius:26px 9px 26px 9px;
+      border:1px solid rgba(23,35,29,.12);
+      background:rgba(255,253,248,.78);
+      box-shadow:0 18px 46px rgba(23,35,29,.08);
+    }
+    .home-proof strong{font-size:clamp(1.6rem,2.8vw,2.45rem)}
+    .personal-portrait{
+      position:relative;
+      min-height:min(660px,72vh);
+      border-radius:54px 18px 54px 18px;
+      overflow:hidden;
+      border:1px solid rgba(23,35,29,.14);
+      box-shadow:0 38px 92px rgba(23,35,29,.18);
+      background:#102018;
+      transform:rotateX(calc(var(--my)*-4deg)) rotateY(calc(var(--mx)*5deg));
+      transition:transform .18s ease-out;
+    }
+    .personal-portrait img{
+      width:100%;
+      height:100%;
+      min-height:inherit;
+      object-fit:cover;
+      object-position:center 16%;
+      filter:saturate(.92) contrast(1.05);
+    }
+    .personal-portrait:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg,transparent 72%,rgba(13,27,20,.38)),
+        radial-gradient(circle at calc(50% + var(--mx)*18%) calc(44% + var(--my)*12%),rgba(231,180,90,.10),transparent 28%);
+    }
+    .hero-role-pills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.62rem;
+      margin-top:1.5rem;
+    }
+    .hero-role-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      padding:.42rem .95rem;
+      border:1px solid rgba(23,35,29,.16);
+      border-radius:999px;
+      background:rgba(255,253,248,.82);
+      font-size:.76rem;
+      font-weight:800;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+      color:var(--ink);
+      box-shadow:0 8px 22px rgba(23,35,29,.06);
+      transition:transform .28s var(--ease),box-shadow .28s ease,border-color .28s ease;
+    }
+    .hero-role-pill:hover{
+      transform:translateY(-2px);
+      border-color:rgba(183,132,50,.42);
+      box-shadow:0 12px 32px rgba(23,35,29,.1);
+    }
+    .hero-role-pill .pill-dot{
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--gold);
+      flex-shrink:0;
+    }
+    .portrait-seal{
+      position:absolute;
+      z-index:2;
+      top:1.1rem;
+      right:1.1rem;
+      width:116px;
+      aspect-ratio:1;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.42);
+      color:#fff;
+      background:rgba(16,32,24,.28);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      font-size:.64rem;
+      font-weight:900;
+      letter-spacing:.13em;
+      text-align:center;
+      text-transform:uppercase;
+      animation:spinSeal 28s linear infinite;
+    }
+    @keyframes spinSeal{to{rotate:360deg}}
+    .portrait-caption{
+      position:absolute;
+      z-index:2;
+      left:clamp(1.2rem,3vw,2rem);
+      right:clamp(1.2rem,3vw,2rem);
+      bottom:clamp(1.2rem,3vw,2rem);
+      color:rgba(255,255,255,.86);
+      max-width:min(430px,calc(100% - 2.4rem));
+      padding:.85rem 1rem;
+      border-radius:20px 8px 20px 8px;
+      background:rgba(13,27,20,.68);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+    }
+    .portrait-caption strong{
+      display:block;
+      font-family:var(--serif);
+      font-size:clamp(1.25rem,2.2vw,1.85rem);
+      line-height:1;
+      color:#fff;
+    }
+    .portrait-caption span{
+      display:block;
+      max-width:32ch;
+      margin-top:.6rem;
+      font-size:.78rem;
+      line-height:1.45;
+    }
+    .atlas-route{
+      border-radius:28px 10px 28px 10px;
+      background:linear-gradient(180deg,rgba(255,253,248,.9),rgba(245,241,232,.58));
+      box-shadow:0 18px 48px rgba(23,35,29,.08);
+    }
+    .home-atlas{
+      display:grid;
+      gap:.85rem;
+      border:0;
+      background:transparent;
+      box-shadow:none;
+      padding:0;
+    }
+    .home-atlas::before,.home-atlas::after{display:none!important}
+    .home-metrics{
+      margin-top:clamp(2rem,4vw,3rem);
+    }
+    .home-metric{
+      border-radius:28px 10px 28px 10px;
+    }
+    .personal-manifesto{
+      display:grid;
+      grid-template-columns:minmax(260px,.72fr) minmax(0,1fr);
+      gap:clamp(2rem,5vw,5rem);
+      align-items:start;
+    }
+    .manifesto-card{
+      position:sticky;
+      top:110px;
+      padding:clamp(1.5rem,3vw,2.4rem);
+      border-radius:38px 14px 38px 14px;
+      border:1px solid var(--line);
+      background:rgba(255,253,248,.86);
+      box-shadow:var(--soft-shadow);
+    }
+    .manifesto-card h2{
+      font-family:var(--serif);
+      font-size:clamp(2.3rem,4.5vw,4.8rem);
+      line-height:.96;
+      color:var(--ink);
+    }
+    .manifesto-card p{
+      margin-top:1.1rem;
+      color:var(--muted);
+    }
+    .manifesto-list{
+      display:grid;
+      gap:1.1rem;
+    }
+    .manifesto-item{
+      display:grid;
+      grid-template-columns:120px 1fr;
+      gap:clamp(1rem,3vw,2rem);
+      padding:1.25rem 0;
+      border-bottom:1px solid var(--line);
+    }
+    .manifesto-item strong{
+      font-family:var(--serif);
+      font-size:1.6rem;
+      line-height:1;
+      color:var(--gold);
+    }
+    .manifesto-item h3{
+      font-family:var(--serif);
+      font-size:clamp(1.5rem,2.8vw,2.45rem);
+      line-height:1.05;
+      color:var(--ink);
+    }
+    .manifesto-item p{
+      margin-top:.55rem;
+      color:var(--muted);
+    }
+    @media(max-width:1080px){
+      .home-shell,.personal-manifesto{grid-template-columns:1fr}
+      .personal-portrait{width:min(540px,100%);margin:0 auto}
+      .manifesto-card{position:relative;top:auto}
+    }
+    @media(max-width:640px){
+      .home-hero{min-height:auto}
+      .home-title{font-size:clamp(4rem,18vw,6.4rem)}
+      .home-proof{grid-template-columns:1fr}
+      .personal-portrait{min-height:500px}
+      .personal-portrait img{object-position:center 8%}
+      .portrait-seal{width:88px;font-size:.52rem}
+      .manifesto-item{grid-template-columns:1fr;gap:.45rem}
+    }
+  </style>
 </head>
 
 <body>
@@ -2115,12 +2412,12 @@
     <section class="hero home-hero" id="top">
       <div class="home-shell">
         <div class="hero-copy reveal">
-          <span class="micro-line">Official portfolio gateway</span>
+          <span class="micro-line">Official personal brand</span>
           <h1 class="home-title"><span class="small-word">Dr.</span>Narendra <em>Bhatt</em></h1>
           <div class="home-lede-row">
             <p class="hero-text">
-              Navigate the four public dimensions of a senior Ayurvedic expert: clinical care, translational research,
-              industry strategy, and policy/academic leadership.
+              A senior Ayurvedic physician whose public life moves through clinical care, translational research,
+              industry strategy, and policy leadership without leaving the core discipline of Ayurveda.
             </p>
             <div class="home-proof" aria-label="Career proof points">
               <span><strong>40+</strong>Years in practice</span>
@@ -2128,45 +2425,24 @@
               <span><strong>WHO</strong>Expert consultant</span>
             </div>
           </div>
+          <nav class="hero-role-pills" aria-label="Four professional roles">
+            <a class="hero-role-pill" href="clinical.html"><span class="pill-dot"></span>Clinical Practice</a>
+            <a class="hero-role-pill" href="research-hub.html"><span class="pill-dot"></span>Research</a>
+            <a class="hero-role-pill" href="industry.html"><span class="pill-dot"></span>Industry Strategy</a>
+            <a class="hero-role-pill" href="about.html"><span class="pill-dot"></span>Policy &amp; Academia</a>
+          </nav>
           <div class="hero-actions">
             <a class="button primary" href="#routes">Choose a Route</a>
             <a class="button" href="about.html">Read Biography</a>
           </div>
         </div>
 
-        <div class="home-atlas reveal" aria-label="Role navigation atlas">
-          <a class="atlas-route" href="clinical.html">
-            <span class="num">01</span>
-            <div>
-              <h2>Ayurvedic Physician</h2>
-              <p>Clinical practice, patient care, and classical therapeutic reasoning.</p>
-            </div>
-            <span class="arrow">↗</span>
-          </a>
-          <a class="atlas-route" href="research-hub.html">
-            <span class="num">02</span>
-            <div>
-              <h2>Researcher</h2>
-              <p>Evidence, MATRIX Mode, clinical studies, publications, and patents.</p>
-            </div>
-            <span class="arrow">↗</span>
-          </a>
-          <a class="atlas-route" href="industry.html">
-            <span class="num">03</span>
-            <div>
-              <h2>Industry Strategist</h2>
-              <p>Product, pharma, manufacturing, validation, and sector growth.</p>
-            </div>
-            <span class="arrow">↗</span>
-          </a>
-          <a class="atlas-route" href="about.html">
-            <span class="num">04</span>
-            <div>
-              <h2>Policy & Academia</h2>
-              <p>Global institutions, governance, teaching, and public welfare.</p>
-            </div>
-            <span class="arrow">↗</span>
-          </a>
+        <div class="personal-portrait reveal" aria-label="Dr. Narendra Bhatt official portrait">
+          <img src="DrNarendraBhatt.jpg" alt="Dr. Narendra Bhatt">
+          <div class="portrait-caption">
+            <strong>The man behind the institutions.</strong>
+            <span>Fourth-generation physician. Research builder. Industry strategist. Public voice for objective Ayurveda.</span>
+          </div>
         </div>
       </div>
 
@@ -2174,6 +2450,35 @@
         <div class="home-metric" style="--i:0"><strong>4th</strong><span>Generation Ayurvedic physician</span></div>
         <div class="home-metric" style="--i:1"><strong>Zandu</strong><span>CEO and corporate turnaround</span></div>
         <div class="home-metric" style="--i:2"><strong>CRIA</strong><span>Research and innovation ecosystem</span></div>
+      </div>
+    </section>
+
+    <section class="section white">
+      <div class="section-inner personal-manifesto">
+        <aside class="manifesto-card reveal">
+          <span class="section-kicker">Personal brand position</span>
+          <h2>The senior Ayurveda expert with four public lives.</h2>
+          <p>NSB should not behave like a brochure. It should let visitors understand why different institutions, patients, researchers, and policy rooms all converge around the same person.</p>
+          <span class="signature-line">Narendra Bhatt</span>
+        </aside>
+        <div class="manifesto-list">
+          <article class="manifesto-item reveal">
+            <strong>01</strong>
+            <div><h3>Always a practitioner.</h3><p>Even with senior leadership roles, the clinical identity stays central: exclusive Ayurvedic practice, humane inquiry, and root-cause reasoning.</p></div>
+          </article>
+          <article class="manifesto-item reveal">
+            <strong>02</strong>
+            <div><h3>Research without losing Ayurveda.</h3><p>His work presents Ayurveda through evidence and objective logic while keeping Ayurvedic principles as the starting point.</p></div>
+          </article>
+          <article class="manifesto-item reveal">
+            <strong>03</strong>
+            <div><h3>Strategy shaped by conviction.</h3><p>Business and product growth are framed as sector-building: validation, standardization, and confidence in Ayurveda’s future.</p></div>
+          </article>
+          <article class="manifesto-item reveal">
+            <strong>04</strong>
+            <div><h3>Global welfare as the scale.</h3><p>Policy, academia, and international platforms connect back to one commitment: Ayurveda for deliverable public health benefit.</p></div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -2364,16 +2669,18 @@
           </ul>
         </div>
 
-        <div class="method-visual reveal" aria-label="Interactive layered research model">
-          <div class="research-model" id="researchModel">
-            <span class="model-disc"></span>
-            <span class="model-disc"></span>
-            <span class="model-disc"></span>
+        <div class="method-visual reveal" aria-label="Interactive MATRIX Mode layered research model">
+          <div class="matrix-stack" id="researchModel">
+            <span class="matrix-axis"></span>
+            <div class="matrix-layer"><small>Source</small><strong>Ayurvedic Principle</strong></div>
+            <div class="matrix-layer"><small>Material</small><strong>Botanical & Product Standard</strong></div>
+            <div class="matrix-layer"><small>Evidence</small><strong>Clinical Observation</strong></div>
+            <div class="matrix-layer"><small>Outcome</small><strong>Validation & Protocol</strong></div>
           </div>
           <div class="model-label">
             <strong>MATRIX Mode</strong>
-            <span>Layered standardization: Ayurvedic logic, clinical observation, scientific evaluation, and product
-              outcomes.</span>
+            <span>A layered standardization route: classical principle, material standard, clinical observation,
+              scientific evaluation, and usable product or protocol outcome.</span>
           </div>
         </div>
       </div>

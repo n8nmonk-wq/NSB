@@ -68,6 +68,223 @@
   }
 }
 
+/* Personal branding layer: make NSB feel authored, not templated. */
+.personal-hero-card{
+  position:relative;
+  min-height:min(640px,72vh);
+  border-radius:48px 16px 48px 16px;
+  overflow:hidden;
+  border:1px solid rgba(23,35,29,.16);
+  background:
+    linear-gradient(180deg,rgba(255,253,248,.18),rgba(16,32,24,.88)),
+    var(--white);
+  box-shadow:0 34px 90px rgba(23,35,29,.16);
+  transform:rotateX(calc(var(--my)*-4deg)) rotateY(calc(var(--mx)*5deg));
+  transition:transform .18s ease-out;
+}
+.personal-hero-card img{
+  width:100%;
+  height:100%;
+  min-height:inherit;
+  object-fit:cover;
+  object-position:center 16%;
+  filter:saturate(.92) contrast(1.05);
+}
+.personal-hero-card:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg,transparent 36%,rgba(13,27,20,.84)),
+    radial-gradient(circle at calc(50% + var(--mx)*16%) calc(45% + var(--my)*12%),rgba(231,180,90,.22),transparent 32%);
+  pointer-events:none;
+}
+.personal-caption{
+  position:absolute;
+  left:clamp(1.2rem,3vw,2rem);
+  right:clamp(1.2rem,3vw,2rem);
+  bottom:clamp(1.2rem,3vw,2rem);
+  z-index:2;
+  color:rgba(255,255,255,.88);
+}
+.personal-caption strong{
+  display:block;
+  font-family:var(--serif);
+  font-size:clamp(1.65rem,3vw,2.7rem);
+  line-height:1;
+  color:#fff;
+}
+.personal-caption span{
+  display:block;
+  margin-top:.55rem;
+  max-width:36ch;
+  font-size:.92rem;
+}
+.personal-note{
+  position:absolute;
+  z-index:3;
+  top:8%;
+  right:-4%;
+  width:min(260px,48%);
+  padding:1rem 1.05rem;
+  border:1px solid rgba(16,32,24,.12);
+  border-radius:22px 8px 22px 8px;
+  background:rgba(255,253,248,.92);
+  box-shadow:0 24px 70px rgba(23,35,29,.16);
+  color:var(--ink);
+  transform:rotate(3deg);
+}
+.personal-note small{
+  display:block;
+  margin-bottom:.45rem;
+  color:var(--gold);
+  font-size:.68rem;
+  font-weight:900;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+.personal-note p{
+  font-family:var(--serif);
+  font-size:clamp(1rem,1.8vw,1.25rem);
+  line-height:1.2;
+}
+.signature-line{
+  display:inline-flex;
+  align-items:center;
+  gap:.85rem;
+  margin-top:1.2rem;
+  color:var(--gold);
+  font-family:var(--serif);
+  font-size:1.2rem;
+  font-style:italic;
+}
+.signature-line:before{
+  content:"";
+  width:52px;
+  height:1px;
+  background:currentColor;
+}
+.identity-strip{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  margin-top:clamp(2.5rem,5vw,4rem);
+  border:1px solid var(--line);
+  border-radius:34px 12px 34px 12px;
+  overflow:hidden;
+  background:var(--line);
+  box-shadow:var(--soft-shadow);
+}
+.identity-strip span{
+  display:flex;
+  min-height:120px;
+  align-items:flex-end;
+  padding:1rem;
+  background:linear-gradient(180deg,rgba(255,253,248,.96),rgba(245,241,232,.76));
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:clamp(1.15rem,2vw,1.65rem);
+  line-height:1.05;
+}
+.field-ledger{
+  display:grid;
+  grid-template-columns:minmax(240px,.56fr) minmax(0,1fr);
+  gap:clamp(1.4rem,4vw,3rem);
+  align-items:stretch;
+}
+.ledger-face{
+  position:relative;
+  min-height:420px;
+  border-radius:42px 14px 42px 14px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  border:1px solid var(--line);
+}
+.ledger-face img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 18%;
+}
+.ledger-face figcaption{
+  position:absolute;
+  left:1rem;
+  right:1rem;
+  bottom:1rem;
+  padding:1rem;
+  border-radius:18px 8px 18px 8px;
+  background:rgba(255,253,248,.9);
+  color:var(--ink);
+  font-weight:800;
+}
+.ledger-list{
+  display:grid;
+  gap:.85rem;
+}
+.ledger-item{
+  display:grid;
+  grid-template-columns:90px 1fr;
+  gap:1.2rem;
+  padding:1.15rem 0;
+  border-bottom:1px solid var(--line);
+}
+.ledger-item strong{
+  font-family:var(--serif);
+  font-size:1.55rem;
+  line-height:1;
+  color:var(--gold);
+}
+.ledger-item h3{
+  font-family:var(--serif);
+  font-size:clamp(1.35rem,2.5vw,2.1rem);
+  line-height:1.08;
+  color:var(--ink);
+}
+.ledger-item p{
+  margin-top:.45rem;
+  color:var(--muted);
+}
+.feature-card,
+.research-tile{
+  transform:translateY(0);
+  transition:transform .36s var(--ease),box-shadow .36s ease,border-color .36s ease;
+}
+.feature-card:hover,
+.research-tile:hover{
+  border-color:rgba(189,138,44,.45);
+}
+.feature-card small,
+.research-tile small,
+.time-domain{
+  color:#a06d17;
+}
+.clinical-care-photo{background:url("https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=82") center/cover}
+.research-method-photo{background:url("https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1200&q=82") center/cover}
+.industry-method-photo{background:url("https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=82") center/cover}
+.contact-dialogue-photo{background:url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=82") center/cover}
+.research-tile{
+  min-height:360px;
+}
+.research-tile:before{
+  content:"";
+  display:block;
+  height:10px;
+  background:linear-gradient(90deg,var(--gold),rgba(47,123,89,.55),transparent);
+}
+@media(max-width:1080px){
+  .field-ledger{grid-template-columns:1fr}
+  .identity-strip{grid-template-columns:repeat(2,1fr)}
+  .personal-note{right:1rem}
+}
+@media(max-width:640px){
+  .personal-hero-card{min-height:430px}
+  .personal-hero-card img{object-position:center 8%}
+  .personal-note{position:relative;top:auto;right:auto;width:auto;margin:-1.4rem 1rem 0;transform:rotate(-1deg)}
+  .identity-strip{grid-template-columns:1fr}
+  .identity-strip span{min-height:82px}
+  .ledger-item{grid-template-columns:1fr;gap:.45rem}
+}
+
 /* NSB premium system refresh: shared across Clinical, Research, Industry, Contact. */
 :root{
   --white:#fffdf8;
@@ -171,7 +388,7 @@ h1,.section-title{letter-spacing:-.015em}
     radial-gradient(circle at 70% 72%,rgba(56,120,93,.18),transparent 14rem),
     linear-gradient(135deg,#fffdf8,#e9f0e7 56%,#f5f1e8);
 }
-.media-photo img{display:none}
+.media-photo img{display:block}
 .media-photo:before{
   content:"";
   width:min(62%,280px);
@@ -194,7 +411,7 @@ h1,.section-title{letter-spacing:-.015em}
   transform:rotate(-18deg);
   box-shadow:0 24px 55px rgba(23,35,29,.16);
 }
-.research-tile img{display:none}
+.research-tile img{display:block}
 .research-tile{
   position:relative;
   min-height:360px;
@@ -287,3 +504,196 @@ h1,.section-title{letter-spacing:-.015em}
   .filter-bar,.tabs-nav{display:flex;flex-wrap:wrap}
   .media-photo{min-height:240px}
 }
+
+/* Fix repeated portrait usage and make section imagery literal. */
+.clinical-page .personal-hero-card:after,
+.research-page .personal-hero-card:after,
+.industry-page .personal-hero-card:after,
+.contact-page .personal-hero-card:after{
+  background:linear-gradient(180deg,transparent 62%,rgba(13,27,20,.58));
+}
+.personal-caption{
+  left:1rem;
+  right:auto;
+  bottom:1rem;
+  max-width:min(430px,calc(100% - 2rem));
+  padding:.85rem 1rem;
+  border-radius:20px 8px 20px 8px;
+  background:rgba(13,27,20,.72);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+.personal-caption strong{
+  font-size:clamp(1.2rem,2.2vw,1.75rem);
+}
+.personal-caption span{
+  font-size:.78rem;
+  line-height:1.45;
+}
+.personal-note{
+  width:min(230px,45%);
+  padding:.82rem .9rem;
+}
+.media-photo:before,
+.media-photo:after{
+  display:none;
+}
+.media-photo{
+  background-color:#eef2ea;
+}
+/* Section spacing fix across all inner pages */
+.section + .section{
+  border-top: 1px solid transparent;
+}
+.section .section-inner > .split-heading{
+  margin-bottom: clamp(3rem,5vw,5rem);
+}
+.section .section-inner > .field-ledger{
+  margin-bottom: clamp(2.5rem,5vw,4rem);
+}
+.section .section-inner > .grid-3,
+.section .section-inner > .grid-4,
+.section .section-inner > .media-strip{
+  margin-top: 0;
+}
+
+/* Research board: proper 3x3 grid */
+.research-page .research-board{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:clamp(1rem,2vw,1.5rem);
+  align-items:stretch;
+}
+.research-page .research-tile{
+  grid-column:auto;
+  min-height:380px;
+  padding-top:0;
+  display:flex;
+  flex-direction:column;
+}
+.research-page .research-tile.is-large,
+.research-page .research-tile.is-wide{
+  grid-column:auto;
+}
+.research-page .research-tile:before{
+  display:none;
+}
+.research-page .research-tile img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-bottom:1px solid var(--line);
+  filter:saturate(.92) contrast(1.02);
+  flex-shrink:0;
+}
+.research-page .research-tile div{
+  padding:1.25rem;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+.research-page .research-tile h3{
+  margin-top:.8rem;
+}
+/* Filter bar top spacing */
+.filter-bar{
+  margin-bottom:clamp(2rem,4vw,3rem);
+}
+.industry-page .feature-card p,
+.research-page .research-tile p{
+  font-size:.92rem;
+  line-height:1.55;
+}
+.about-proof-panel{
+  display:grid;
+  grid-template-columns:minmax(240px,.52fr) minmax(0,1fr);
+  gap:clamp(1.3rem,4vw,3rem);
+  padding:clamp(1.4rem,4vw,3rem);
+  border:1px solid var(--line);
+  border-radius:38px 14px 38px 14px;
+  background:linear-gradient(180deg,rgba(255,253,248,.94),rgba(245,241,232,.66));
+  box-shadow:var(--soft-shadow);
+}
+.about-proof-panel h3{
+  font-family:var(--serif);
+  font-size:clamp(2rem,4vw,4rem);
+  line-height:.98;
+  color:var(--ink);
+}
+.about-proof-list{
+  display:grid;
+  gap:0;
+}
+.about-proof-list article{
+  display:grid;
+  grid-template-columns:140px 1fr;
+  gap:1.4rem;
+  padding:1rem 0;
+  border-bottom:1px solid var(--line);
+}
+.about-proof-list article:last-child{border-bottom:0}
+.about-proof-list strong{
+  color:var(--gold);
+  font-family:var(--serif);
+  font-size:1.25rem;
+}
+.about-proof-list p{
+  color:var(--muted);
+}
+@media(max-width:1080px){
+  .research-page .research-board{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  .research-page .research-board{grid-template-columns:1fr}
+}
+@media(max-width:900px){
+  .research-page .research-tile,
+  .research-page .research-tile.is-large,
+  .research-page .research-tile.is-wide{grid-column:auto}
+  .about-proof-panel{grid-template-columns:1fr}
+  .about-proof-list article{grid-template-columns:1fr;gap:.35rem}
+}
+
+/* Contact Page Hero Refinements: Perfect Centering & Justified Text */
+.contact-page .hero-shell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  grid-template-columns: none;
+}
+.contact-page .hero-copy {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.contact-page .micro-line {
+  justify-content: center;
+}
+.contact-page .micro-line:after {
+  content: "";
+  width: 42px;
+  height: 1px;
+  background: currentColor;
+}
+.contact-page h1 {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 14ch;
+}
+.contact-page .hero-text {
+  margin: 1.8rem auto 0;
+  text-align: justify;
+  text-justify: inter-word;
+  max-width: 64ch;
+  line-height: 1.75;
+}
+@media(max-width: 560px) {
+  .contact-page .hero-text {
+    text-align: center;
+  }
+}
+
