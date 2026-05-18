@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" role="img" aria-label="Clinical Ayurveda visual">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fffdf8"/>
+      <stop offset=".52" stop-color="#e9f0e7"/>
+      <stop offset="1" stop-color="#f5f1e8"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#1d5a43"/>
+      <stop offset="1" stop-color="#b78432"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="28" stdDeviation="28" flood-color="#17231d" flood-opacity=".16"/>
+    </filter>
+  </defs>
+  <rect width="900" height="1100" fill="url(#bg)"/>
+  <circle cx="688" cy="250" r="260" fill="#b78432" opacity=".12"/>
+  <circle cx="240" cy="834" r="310" fill="#38785d" opacity=".12"/>
+  <g fill="none" stroke="#17231d" opacity=".13">
+    <path d="M110 220h680M110 330h680M110 440h680M110 550h680M110 660h680M110 770h680"/>
+    <path d="M210 120v860M340 120v860M470 120v860M600 120v860M730 120v860"/>
+  </g>
+  <g filter="url(#shadow)">
+    <path d="M450 160C280 278 192 428 192 606c0 176 116 312 258 312s258-136 258-312C708 428 620 278 450 160Z" fill="#fffdf8" stroke="#17231d" stroke-opacity=".14" stroke-width="4"/>
+    <path d="M450 238v572" stroke="url(#leaf)" stroke-width="26" stroke-linecap="round"/>
+    <path d="M450 398c-116-58-206-46-270 36 118 50 208 38 270-36Z" fill="#38785d" opacity=".72"/>
+    <path d="M450 520c124-70 222-58 294 36-126 60-224 48-294-36Z" fill="#b78432" opacity=".66"/>
+    <path d="M450 646c-100-48-180-38-238 30 104 44 184 34 238-30Z" fill="#1d5a43" opacity=".62"/>
+  </g>
+  <g fill="none" stroke="#334f5f" stroke-opacity=".28" stroke-width="5">
+    <circle cx="450" cy="556" r="350"/>
+    <circle cx="450" cy="556" r="248"/>
+  </g>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" role="img" aria-label="Ayurvedic research visual">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fffdf8"/>
+      <stop offset=".56" stop-color="#f5f1e8"/>
+      <stop offset="1" stop-color="#e9f0e7"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="28" stdDeviation="28" flood-color="#17231d" flood-opacity=".16"/>
+    </filter>
+  </defs>
+  <rect width="900" height="1100" fill="url(#bg)"/>
+  <g fill="none" stroke="#17231d" opacity=".12">
+    <path d="M120 160h660M120 280h660M120 400h660M120 520h660M120 640h660M120 760h660M120 880h660"/>
+    <path d="M180 100v900M300 100v900M420 100v900M540 100v900M660 100v900"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="170" y="185" width="560" height="730" rx="42" fill="#fffdf8" stroke="#17231d" stroke-opacity=".12" stroke-width="4"/>
+    <path d="M330 285h240M270 385h360M270 465h360M270 545h250" stroke="#17231d" stroke-opacity=".24" stroke-width="16" stroke-linecap="round"/>
+    <circle cx="322" cy="690" r="84" fill="#1d5a43" opacity=".82"/>
+    <circle cx="450" cy="690" r="84" fill="#b78432" opacity=".82"/>
+    <circle cx="578" cy="690" r="84" fill="#334f5f" opacity=".78"/>
+    <path d="M322 690h256M450 606v168" stroke="#fffdf8" stroke-opacity=".82" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g fill="none" stroke="#b78432" stroke-opacity=".38" stroke-width="5">
+    <path d="M166 950c132-118 230-116 360 0s220 116 308 0"/>
+    <path d="M166 1000c132-118 230-116 360 0s220 116 308 0"/>
+  </g>
+</svg>
