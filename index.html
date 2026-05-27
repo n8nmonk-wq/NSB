@@ -2140,6 +2140,40 @@
         min-height: 390px;
       }
     }
+      .model-suite,.media-hub{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2vw,1.5rem)}
+    .model-card,.media-card{position:relative;overflow:hidden;min-height:290px;padding:clamp(1.25rem,2.5vw,2rem);border:1px solid var(--line);border-radius:34px 12px 36px 14px;background:linear-gradient(145deg,rgba(255,255,255,.94),rgba(238,246,240,.74));box-shadow:var(--soft-shadow)}
+    .model-card:before,.media-card:before{content:"";position:absolute;inset:auto -18% -30% auto;width:70%;aspect-ratio:1;background:conic-gradient(from 120deg,rgba(47,123,89,.18),rgba(231,180,90,.22),rgba(49,85,108,.16),rgba(143,79,85,.14),rgba(47,123,89,.18));clip-path:polygon(50% 0,100% 38%,82% 100%,18% 100%,0 38%);opacity:.75}.model-card small,.media-card small{position:relative;color:#a06d17;font-size:.74rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}.model-card h3,.media-card h3{position:relative;margin-top:clamp(2.4rem,5vw,4rem);font-family:var(--serif);font-size:clamp(1.6rem,2.8vw,2.65rem);line-height:1.02;color:var(--ink)}.model-card p,.media-card p{position:relative;margin-top:1rem;color:var(--muted)}
+    @media(max-width:1080px){.model-suite,.media-hub{grid-template-columns:1fr 1fr}.nav-links{gap:.75rem}.nav-links a{font-size:.68rem}}
+    @media(max-width:720px){.model-suite,.media-hub{grid-template-columns:1fr}.nav-links.active{max-height:620px}}
+      .media-section{background:linear-gradient(180deg,#fffaf0 0%,#f2efe8 100%)}
+    .media-console{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1rem,2vw,1.5rem);margin-bottom:clamp(1rem,2vw,1.5rem)}
+    .video-feature{position:relative;overflow:hidden;min-height:360px;padding:clamp(1.35rem,3vw,2.2rem);border:1px solid var(--line);border-radius:38px 14px 38px 14px;box-shadow:var(--soft-shadow);display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(135deg,rgba(16,32,24,.88),rgba(49,85,108,.76)),url('NSBPhotosSelectedForWebsite/Ayurvedic%20Physician/MMP_7392%20copy.jpg') center/cover;color:#fff}
+    .video-feature.cria{background:linear-gradient(135deg,rgba(16,32,24,.86),rgba(143,79,85,.72)),url('NSBPhotosSelectedForWebsite/ManagementCRIA/N%2025.JPG') center/cover}
+    .video-feature small{color:var(--saffron);font-size:.75rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.video-feature h3{font-family:var(--serif);font-size:clamp(2rem,3.8vw,3.6rem);line-height:.98;margin-top:.8rem}.video-feature p{max-width:48ch;margin:1rem 0 1.2rem;color:rgba(255,255,255,.82)}
+    .play-mark{position:absolute;top:1.2rem;right:1.2rem;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.92);color:var(--ink);font-size:.68rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 18px 44px rgba(0,0,0,.18)}
+    .media-section .media-card{min-height:280px;background:linear-gradient(145deg,rgba(255,253,248,.98),rgba(245,232,205,.72))}
+    @media(max-width:860px){.media-console{grid-template-columns:1fr}.video-feature{min-height:330px}}
+    .video-groups{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1rem,2vw,1.5rem);margin-bottom:clamp(1rem,2vw,1.5rem)}
+    .video-carousel{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:38px 14px 38px 14px;box-shadow:var(--soft-shadow);background:#102018;color:#fff}
+    .video-track{display:flex;transition:transform .45s var(--ease)}
+    .video-slide{min-width:100%;min-height:390px;padding:clamp(1.35rem,3vw,2.2rem);display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(135deg,rgba(16,32,24,.88),rgba(49,85,108,.68)),var(--slide-img) center/cover}
+    .video-carousel.cria .video-slide{background:linear-gradient(135deg,rgba(16,32,24,.86),rgba(143,79,85,.64)),var(--slide-img) center/cover}
+    .video-slide small,.blog-card small{color:var(--saffron);font-size:.72rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+    .video-slide h3{max-width:9ch;margin-top:.75rem;font-family:var(--serif);font-size:clamp(2rem,3.6vw,3.45rem);line-height:.98}
+    .video-slide p{max-width:48ch;margin:1rem 0 0;color:rgba(255,255,255,.82)}
+    .video-controls{position:absolute;left:1rem;right:1rem;bottom:1rem;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
+    .video-arrows{display:flex;gap:.45rem;pointer-events:auto}
+    .video-arrow{width:38px;height:38px;border:1px solid rgba(255,255,255,.38);border-radius:999px;background:rgba(255,255,255,.92);color:var(--ink);font-weight:900}
+    .video-dots{display:flex;gap:.38rem;pointer-events:auto}
+    .video-dot{width:9px;height:9px;border:0;border-radius:999px;background:rgba(255,255,255,.44)}
+    .video-dot.active{width:26px;background:var(--saffron)}
+    .blog-row{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1rem,2vw,1.5rem)}
+    .blog-card{position:relative;overflow:hidden;padding:clamp(1.35rem,2.6vw,2.1rem);border:1px solid var(--line);border-radius:34px 12px 36px 14px;background:linear-gradient(145deg,rgba(255,253,248,.98),rgba(245,232,205,.72));box-shadow:var(--soft-shadow)}
+    .blog-card h3{margin-top:2.8rem;font-family:var(--serif);font-size:clamp(1.6rem,2.7vw,2.55rem);line-height:1.04;color:var(--ink)}
+    .blog-card p{margin-top:1rem;color:var(--muted)}
+    .blog-card.featured{min-height:300px}
+    @media(max-width:900px){.video-groups,.blog-row{grid-template-columns:1fr}.video-slide{min-height:340px}}
+      .media-section{background:linear-gradient(135deg,#fff8e6 0%,#f1f6ed 44%,#eef6fb 100%);position:relative;overflow:hidden}.media-section:before{content:"";position:absolute;inset:8% auto auto -12%;width:34vw;aspect-ratio:1;border-radius:50%;background:rgba(212,154,47,.18);filter:blur(10px)}.film-river{display:grid;gap:clamp(1.2rem,2.5vw,2rem);margin-bottom:clamp(1.2rem,2.5vw,2rem)}.film-panel{position:relative;overflow:hidden;min-height:390px;border-radius:42px 14px 42px 14px;border:1px solid var(--line);box-shadow:var(--shadow);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(260px,.62fr);align-items:end;background:linear-gradient(110deg,rgba(16,32,24,.94),rgba(49,85,108,.7)),url('NSBPhotosSelectedForWebsite/Ayurvedic%20Physician/MMP_7392%20copy.jpg') center/cover;color:#fff}.film-panel.strategy-film{background:linear-gradient(110deg,rgba(16,32,24,.92),rgba(143,79,85,.74)),url('NSBPhotosSelectedForWebsite/ManagementCRIA/N%2025.JPG') center/cover}.film-copy{position:relative;z-index:1;padding:clamp(1.4rem,4vw,3rem);max-width:760px}.film-copy small,.media-path small{color:var(--saffron);font-size:.74rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.film-copy h3{font-family:var(--serif);font-size:clamp(2.2rem,4.8vw,4.8rem);line-height:.95;max-width:11ch;margin-top:.9rem}.film-copy p{max-width:58ch;margin:1.1rem 0 1.3rem;color:rgba(255,255,255,.82)}.film-strip{align-self:stretch;display:grid;align-content:end;gap:.65rem;padding:clamp(1rem,3vw,2rem);background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.06));backdrop-filter:blur(7px)}.film-strip span{padding:.7rem .9rem;border:1px solid rgba(255,255,255,.22);border-radius:999px;font-weight:900;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.86)}.media-pathways{display:grid;grid-template-columns:1.15fr .925fr .925fr;gap:clamp(1rem,2vw,1.4rem)}.media-path{position:relative;overflow:hidden;min-height:240px;padding:clamp(1.2rem,2.6vw,2rem);border-radius:34px 12px 36px 14px;border:1px solid var(--line);background:linear-gradient(145deg,#fffdf8,#f7e8c1);box-shadow:var(--soft-shadow);display:flex;flex-direction:column;justify-content:flex-end}.media-path.book-path{background:linear-gradient(145deg,#fffdf8,#dcecf4)}.media-path.industry-path{background:linear-gradient(145deg,#fffdf8,#ead9e5)}.media-path strong{font-family:var(--serif);font-size:clamp(1.55rem,2.6vw,2.45rem);line-height:1.02;color:var(--ink);margin:.7rem 0}.media-path span{color:var(--muted)}@media(max-width:920px){.film-panel{grid-template-columns:1fr}.film-strip{grid-template-columns:1fr 1fr 1fr}.media-pathways{grid-template-columns:1fr}}@media(max-width:560px){.film-panel{min-height:470px}.film-copy h3{font-size:clamp(2rem,12vw,3.1rem)}.film-strip{display:none}}
   </style>
   <style>
     /* NSB personal brand direction: editorial, portrait-led, authored. */
@@ -2385,6 +2419,20 @@
       .portrait-seal{width:88px;font-size:.52rem}
       .manifesto-item{grid-template-columns:1fr;gap:.45rem}
     }
+      .model-suite,.media-hub{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2vw,1.5rem)}
+    .model-card,.media-card{position:relative;overflow:hidden;min-height:290px;padding:clamp(1.25rem,2.5vw,2rem);border:1px solid var(--line);border-radius:34px 12px 36px 14px;background:linear-gradient(145deg,rgba(255,255,255,.94),rgba(238,246,240,.74));box-shadow:var(--soft-shadow)}
+    .model-card:before,.media-card:before{content:"";position:absolute;inset:auto -18% -30% auto;width:70%;aspect-ratio:1;background:conic-gradient(from 120deg,rgba(47,123,89,.18),rgba(231,180,90,.22),rgba(49,85,108,.16),rgba(143,79,85,.14),rgba(47,123,89,.18));clip-path:polygon(50% 0,100% 38%,82% 100%,18% 100%,0 38%);opacity:.75}.model-card small,.media-card small{position:relative;color:#a06d17;font-size:.74rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}.model-card h3,.media-card h3{position:relative;margin-top:clamp(2.4rem,5vw,4rem);font-family:var(--serif);font-size:clamp(1.6rem,2.8vw,2.65rem);line-height:1.02;color:var(--ink)}.model-card p,.media-card p{position:relative;margin-top:1rem;color:var(--muted)}
+    @media(max-width:1080px){.model-suite,.media-hub{grid-template-columns:1fr 1fr}.nav-links{gap:.75rem}.nav-links a{font-size:.68rem}}
+    @media(max-width:720px){.model-suite,.media-hub{grid-template-columns:1fr}.nav-links.active{max-height:620px}}
+      .media-section{background:linear-gradient(180deg,#fffaf0 0%,#f2efe8 100%)}
+    .media-console{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1rem,2vw,1.5rem);margin-bottom:clamp(1rem,2vw,1.5rem)}
+    .video-feature{position:relative;overflow:hidden;min-height:360px;padding:clamp(1.35rem,3vw,2.2rem);border:1px solid var(--line);border-radius:38px 14px 38px 14px;box-shadow:var(--soft-shadow);display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(135deg,rgba(16,32,24,.88),rgba(49,85,108,.76)),url('NSBPhotosSelectedForWebsite/Ayurvedic%20Physician/MMP_7392%20copy.jpg') center/cover;color:#fff}
+    .video-feature.cria{background:linear-gradient(135deg,rgba(16,32,24,.86),rgba(143,79,85,.72)),url('NSBPhotosSelectedForWebsite/ManagementCRIA/N%2025.JPG') center/cover}
+    .video-feature small{color:var(--saffron);font-size:.75rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.video-feature h3{font-family:var(--serif);font-size:clamp(2rem,3.8vw,3.6rem);line-height:.98;margin-top:.8rem}.video-feature p{max-width:48ch;margin:1rem 0 1.2rem;color:rgba(255,255,255,.82)}
+    .play-mark{position:absolute;top:1.2rem;right:1.2rem;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.92);color:var(--ink);font-size:.68rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 18px 44px rgba(0,0,0,.18)}
+    .media-section .media-card{min-height:280px;background:linear-gradient(145deg,rgba(255,253,248,.98),rgba(245,232,205,.72))}
+    @media(max-width:860px){.media-console{grid-template-columns:1fr}.video-feature{min-height:330px}}
+      .media-section{background:linear-gradient(135deg,#fff8e6 0%,#f1f6ed 44%,#eef6fb 100%);position:relative;overflow:hidden}.media-section:before{content:"";position:absolute;inset:8% auto auto -12%;width:34vw;aspect-ratio:1;border-radius:50%;background:rgba(212,154,47,.18);filter:blur(10px)}.film-river{display:grid;gap:clamp(1.2rem,2.5vw,2rem);margin-bottom:clamp(1.2rem,2.5vw,2rem)}.film-panel{position:relative;overflow:hidden;min-height:390px;border-radius:42px 14px 42px 14px;border:1px solid var(--line);box-shadow:var(--shadow);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(260px,.62fr);align-items:end;background:linear-gradient(110deg,rgba(16,32,24,.94),rgba(49,85,108,.7)),url('NSBPhotosSelectedForWebsite/Ayurvedic%20Physician/MMP_7392%20copy.jpg') center/cover;color:#fff}.film-panel.strategy-film{background:linear-gradient(110deg,rgba(16,32,24,.92),rgba(143,79,85,.74)),url('NSBPhotosSelectedForWebsite/ManagementCRIA/N%2025.JPG') center/cover}.film-copy{position:relative;z-index:1;padding:clamp(1.4rem,4vw,3rem);max-width:760px}.film-copy small,.media-path small{color:var(--saffron);font-size:.74rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.film-copy h3{font-family:var(--serif);font-size:clamp(2.2rem,4.8vw,4.8rem);line-height:.95;max-width:11ch;margin-top:.9rem}.film-copy p{max-width:58ch;margin:1.1rem 0 1.3rem;color:rgba(255,255,255,.82)}.film-strip{align-self:stretch;display:grid;align-content:end;gap:.65rem;padding:clamp(1rem,3vw,2rem);background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.06));backdrop-filter:blur(7px)}.film-strip span{padding:.7rem .9rem;border:1px solid rgba(255,255,255,.22);border-radius:999px;font-weight:900;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.86)}.media-pathways{display:grid;grid-template-columns:1.15fr .925fr .925fr;gap:clamp(1rem,2vw,1.4rem)}.media-path{position:relative;overflow:hidden;min-height:240px;padding:clamp(1.2rem,2.6vw,2rem);border-radius:34px 12px 36px 14px;border:1px solid var(--line);background:linear-gradient(145deg,#fffdf8,#f7e8c1);box-shadow:var(--soft-shadow);display:flex;flex-direction:column;justify-content:flex-end}.media-path.book-path{background:linear-gradient(145deg,#fffdf8,#dcecf4)}.media-path.industry-path{background:linear-gradient(145deg,#fffdf8,#ead9e5)}.media-path strong{font-family:var(--serif);font-size:clamp(1.55rem,2.6vw,2.45rem);line-height:1.02;color:var(--ink);margin:.7rem 0}.media-path span{color:var(--muted)}@media(max-width:920px){.film-panel{grid-template-columns:1fr}.film-strip{grid-template-columns:1fr 1fr 1fr}.media-pathways{grid-template-columns:1fr}}@media(max-width:560px){.film-panel{min-height:470px}.film-copy h3{font-size:clamp(2rem,12vw,3.1rem)}.film-strip{display:none}}
   </style>
 </head>
 
@@ -2398,13 +2446,16 @@
         <span class="hamburger-line"></span>
       </button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="clinical.html">Clinical</a></li>
-        <li><a href="research-hub.html">Research</a></li>
-        <li><a href="industry.html">Industry</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="clinical.html">Clinical</a></li>
+          <li><a href="research-hub.html">Research</a></li>
+          <li><a href="industry.html">Industry</a></li>
+          <li><a href="about.html#policy">Policy</a></li>
+          <li><a href="about.html#academia">Academia</a></li>
+          <li><a href="blog.html">Media</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
     </div>
   </header>
 
@@ -2416,28 +2467,29 @@
           <h1 class="home-title"><span class="small-word">Dr.</span>Narendra <em>Bhatt</em></h1>
           <div class="home-lede-row">
             <p class="hero-text">
-              Bridging the profound wisdom of classical Ayurveda with the rigorous scrutiny of modern science. For over four decades, Dr. Narendra Bhatt has advanced global integrative medicine—as a practicing physician, research pioneer, corporate leader, and public policy adviser.
+              Bridging classical Ayurveda with modern scientific reasoning. Across clinical practice, research, industry strategy, policy dialogue, and academia, Dr. Narendra Bhatt is presented here as a person with a coherent life of work, not a collection of disconnected credentials.
             </p>
             <div class="home-proof" aria-label="Career proof points">
               <span><strong>40+</strong>Years of practice</span>
               <span><strong>55+</strong>Clinical trials</span>
-              <span><strong>WHO</strong>Policy consultant</span>
+              <span><strong>Global</strong>Selective advisory exposure</span>
             </div>
           </div>
           <nav class="hero-role-pills" aria-label="Four professional roles">
             <a class="hero-role-pill" href="clinical.html"><span class="pill-dot"></span>Clinical Practice</a>
             <a class="hero-role-pill" href="research-hub.html"><span class="pill-dot"></span>Research</a>
             <a class="hero-role-pill" href="industry.html"><span class="pill-dot"></span>Industry Strategy</a>
-            <a class="hero-role-pill" href="about.html"><span class="pill-dot"></span>Policy &amp; Academia</a>
+            <a class="hero-role-pill" href="about.html#policy"><span class="pill-dot"></span>Policy</a>
+            <a class="hero-role-pill" href="about.html#academia"><span class="pill-dot"></span>Academia</a>
           </nav>
           <div class="hero-actions">
             <a class="button primary" href="#routes">Explore His Work</a>
-            <a class="button" href="about.html">Read Biography</a>
+            <a class="button" href="#media">Videos & Blog</a>
           </div>
         </div>
 
         <div class="personal-portrait reveal" aria-label="Dr. Narendra Bhatt official portrait">
-          <img src="DrNarendraBhatt.jpg" alt="Dr. Narendra Bhatt">
+          <img src="NSBPhotosSelectedForWebsite/DrNarendraBhattForAnnasahebPatwardhanPuraskar2025.JPG" alt="Dr. Narendra Bhatt">
           <div class="portrait-caption">
             <strong>The man behind the institutions.</strong>
             <span>Fourth-generation physician. Research builder. Industry strategist. Public voice for objective Ayurveda.</span>
@@ -2447,8 +2499,8 @@
 
       <div class="home-metrics stagger" aria-label="Career highlights">
         <div class="home-metric" style="--i:0"><strong>4th</strong><span>Generation Ayurvedic lineage</span></div>
-        <div class="home-metric" style="--i:1"><strong>Zandu</strong><span>CEO & corporate modernization</span></div>
-        <div class="home-metric" style="--i:2"><strong>CRIA</strong><span>Pioneering research ecosystem</span></div>
+        <div class="home-metric" style="--i:1"><strong>Industry</strong><span>Ayurveda business strategy</span></div>
+        <div class="home-metric" style="--i:2"><strong>Models</strong><span>MATRIX, EVA and MANTHAN</span></div>
       </div>
     </section>
 
@@ -2457,7 +2509,7 @@
         <aside class="manifesto-card reveal">
           <span class="section-kicker">Personal brand position</span>
           <h2>The senior Ayurveda expert with four public lives.</h2>
-          <p>NSB should not behave like a brochure. It should let visitors understand why different institutions, patients, researchers, and policy rooms all converge around the same person.</p>
+          <p>This portfolio helps visitors engage with the person behind the work: a clinician, research thinker, industry strategist, policy contributor, and academic voice whose decisions are connected by objective Ayurveda.</p>
           <span class="signature-line">Narendra Bhatt</span>
         </aside>
         <div class="manifesto-list">
@@ -2481,6 +2533,29 @@
       </div>
     </section>
 
+    <section class="section paper media-section" id="media">
+      <div class="section-inner">
+        <div class="split-heading reveal">
+          <div><span class="section-kicker">NSB video library and public media</span><h2 class="section-title">Two film identities, one authored voice.</h2></div>
+          <p class="section-lede">The media area is separated into the two YouTube groups mentioned in the brief: films where Dr. Bhatt appears as an Ayurvedic physician, and films connected with CRIA, industry, validation, strategy, and public purpose.</p>
+        </div>
+        <div class="film-river reveal">
+          <article class="film-panel physician-film">
+            <div class="film-copy"><small>Youtube films / Ayurvedic physician</small><h3>Clinical voice, patient education, physician-facing talks.</h3><p>This is the place for the first YouTube group: clinical talks, serious Ayurveda explanations, patient education, and videos where Dr. Bhatt speaks primarily as a physician.</p><a class="button primary" href="blog.html#physician-films">Open Physician Films</a></div>
+            <div class="film-strip" aria-hidden="true"><span>Prakriti</span><span>Clinical reasoning</span><span>Patient care</span></div>
+          </article>
+          <article class="film-panel strategy-film">
+            <div class="film-copy"><small>Youtube films / CRIA, industry, strategy</small><h3>Strategy films for CRIA, MANTHAN, validation and Ayurveda growth.</h3><p>This second lane keeps CRIA and industry conversations separate from the clinical identity, so Zandu remains a case study and CRIA remains the consultation/product-strategy route.</p><a class="button" href="blog.html#strategy-films">Open Strategy Films</a></div>
+            <div class="film-strip" aria-hidden="true"><span>CRIA</span><span>MANTHAN</span><span>Validation</span></div>
+          </article>
+        </div>
+        <div class="media-pathways reveal">
+          <a class="media-path blog-path" href="blog.html#blog"><small>NSB Blog</small><strong>Articles, reflections and public notes</strong><span>Clinical reasoning, research commentary and institutional updates.</span></a>
+          <a class="media-path book-path" href="blog.html#books"><small>Books / RRA</small><strong>Book promotion and research assets</strong><span>Prepared for RRA cover, publication links and review material.</span></a>
+          <a class="media-path industry-path" href="blog.html#industry-media"><small>IASTAM / Industry</small><strong>Industry text and media references</strong><span>Prepared for IASTAM text/image once the team confirms the asset.</span></a>
+        </div>
+      </div>
+    </section>
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track">
         <span>Ayurvedic Physician</span><span class="dot">/</span>
@@ -2510,7 +2585,7 @@
 
         <div class="role-constellation reveal">
           <aside class="constellation-note">
-            <h3>One integrated vision, accessed through four doors.</h3>
+            <h3>One integrated vision, accessed through distinct public routes.</h3>
             <p>While clinical care, research, industry, and international policy represent distinct challenges, they spring from a single conviction: traditional medicine must be practiced and valued as an objective, measurable science.</p>
           </aside>
           <div class="role-lanes">
@@ -2531,7 +2606,7 @@
             </a>
             <a class="role-lane" href="about.html">
               <span class="role-symbol"><svg viewBox="0 0 80 80" aria-hidden="true"><path d="M40 10l27 13v18c0 16-10 25-27 31-17-6-27-15-27-31V23L40 10Z" fill="none" stroke="currentColor" stroke-width="4"/><path d="M28 41l8 8 17-18" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <div><h3>Policy & Academia</h3><p>Advising global institutions to integrate natural medicine into mainstream healthcare systems.</p></div>
+              <div><h3>Policy</h3><p>Contributing to governance and institutional conversations where Ayurveda needs public-health clarity.</p></div>
               <span>Read profile</span>
             </a>
           </div>
@@ -2591,8 +2666,8 @@
               <span class="time-domain">Policy Frameworks</span>
             </div>
             <div class="time-body">
-              <h3>International governance: WHO and World Bank</h3>
-              <p>Acted as an expert consultant to the World Health Organization in Geneva and other global agencies, shaping international policy and research standards.</p>
+              <h3>International projects and institutional dialogue</h3>
+              <p>Participated in selected international and institutional projects over the years, keeping such assignments as part of a larger policy and academic profile rather than the headline identity.</p>
             </div>
           </article>
         </div>
@@ -2602,23 +2677,23 @@
     <section class="section white">
       <div class="section-inner method-wrap">
         <div class="method-copy reveal">
-          <span class="section-kicker">Clinical Rationale</span>
-          <h2 class="section-title" style="margin-bottom: 20px;">A complete, systemic view of pathogenesis.</h2>
+          <span class="section-kicker">Working models</span>
+          <h2 class="section-title" style="margin-bottom: 20px;">MATRIX, EVA, and MANTHAN now have a visible place.</h2>
           <p class="section-lede">
-            Effective therapeutics must look beyond surface symptoms. By systematically evaluating metabolic baselines, environmental influences, dietary habits, and stress patterns, we restore physiological balance at its root.
+            The site now names the missing conceptual models and places them in their right ecosystem context: MATRIX for research standardization, EVA for evidence and validation conversations, and MANTHAN for CRIA-facing product and business strategy.
           </p>
           <ul class="method-list stagger">
             <li style="--i:0">
               <span class="method-num">01</span>
-              <div><strong>Nutritional Therapeutics</strong><p>Targeted dietary alignment mapped to resolve core metabolic imbalances rather than surface management.</p></div>
+              <div><strong>MATRIX Mode</strong><p>Research standardization from Ayurvedic principle to material, evidence, product standard, and outcome.</p></div>
             </li>
             <li style="--i:1">
               <span class="method-num">02</span>
-              <div><strong>Lifestyle Adaptation</strong><p>Practical, sustainable behavioral adaptations tailored to your constitution, work environment, and stress patterns.</p></div>
+              <div><strong>EVA Model</strong><p>Evaluation and validation language connected with InventAYU/CRIA, useful for evidence and applied research.</p></div>
             </li>
             <li style="--i:2">
               <span class="method-num">03</span>
-              <div><strong>Authenticated Formulations</strong><p>Utilizing pure, precisely compound-delivered botanical therapeutics to support long-term physiological healing.</p></div>
+              <div><strong>MANTHAN Model</strong><p>CRIA-facing strategic churning for product strategy, research decisions, and industry consultation.</p></div>
             </li>
           </ul>
         </div>
@@ -2660,8 +2735,8 @@
 
         <div class="reach-grid stagger">
           <article class="reach-card" style="--i:0">
-            <div><span class="reach-country">Geneva, Switzerland</span><div class="reach-org">WHO</div></div>
-            <div><h3>Global Policy Advisory</h3><p>Formulating international standards for traditional and complementary medicine integration.</p></div>
+            <div><span class="reach-country">International</span><div class="reach-org">Projects</div></div>
+            <div><h3>Selective advisory exposure</h3><p>Earlier international project participation presented as one part of a broader policy and academic journey.</p></div>
           </article>
           <article class="reach-card" style="--i:1">
             <div><span class="reach-country">Washington, D.C.</span><div class="reach-org">World Bank</div></div>
@@ -2682,7 +2757,6 @@
         </div>
       </div>
     </section>
-
     <section class="cta-bridge">
       <div class="cta-inner reveal">
         <span class="section-kicker">Let's Connect</span>
@@ -2700,7 +2774,7 @@
     <div class="footer-grid">
       <div class="footer-col">
         <h3>Dr. Narendra Bhatt</h3>
-        <p>A senior Ayurvedic physician, researcher, strategist, and public policy voice dedicated to objective scientific reasoning and sustainable healthcare delivery.</p>
+        <p>A senior Ayurvedic physician, researcher, strategist, and policy and academic voice dedicated to objective scientific reasoning and sustainable healthcare delivery.</p>
       </div>
       <div class="footer-col">
         <h3>Explore</h3>
@@ -2708,7 +2782,10 @@
           <li><a href="about.html">About Dr. Bhatt</a></li>
           <li><a href="clinical.html">Clinical Practice</a></li>
           <li><a href="research-hub.html">Research Hub</a></li>
-          <li><a href="industry.html">Industry Strategy</a></li>
+          <li><a href="industry.html">Industry Impact</a></li>
+          <li><a href="about.html#policy">Policy</a></li>
+          <li><a href="about.html#academia">Academia</a></li>
+          <li><a href="blog.html">Media & Blog</a></li>
           <li><a href="contact.html">Get in Touch</a></li>
         </ul>
       </div>
@@ -2761,6 +2838,31 @@
         lines[0].style.transform = open ? "rotate(45deg) translate(4px, 4px)" : "";
         lines[1].style.opacity = open ? "0" : "1";
         lines[2].style.transform = open ? "rotate(-45deg) translate(4px, -4px)" : "";
+      });
+
+
+      document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+        const track = carousel.querySelector(".video-track");
+        const slides = Array.from(carousel.querySelectorAll(".video-slide"));
+        const dotsWrap = carousel.querySelector("[data-dots]");
+        let index = 0;
+        const dots = slides.map((_, i) => {
+          const dot = document.createElement("button");
+          dot.className = "video-dot";
+          dot.type = "button";
+          dot.setAttribute("aria-label", `Go to video ${i + 1}`);
+          dot.addEventListener("click", () => go(i));
+          dotsWrap.appendChild(dot);
+          return dot;
+        });
+        const go = (next) => {
+          index = (next + slides.length) % slides.length;
+          track.style.transform = `translateX(${-index * 100}%)`;
+          dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
+        };
+        carousel.querySelector("[data-prev]").addEventListener("click", () => go(index - 1));
+        carousel.querySelector("[data-next]").addEventListener("click", () => go(index + 1));
+        go(0);
       });
 
       const revealObserver = new IntersectionObserver((entries, observer) => {
