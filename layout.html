@@ -1,302 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dr. Narendra Bhatt | Premium Ayurvedic Consultant</title>
-  
-  <!-- Google Fonts: Playfair Display & Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  
-  <!-- CSS Variables & Base Styles -->
-  <link rel="stylesheet" href="variables.css">
-  
-  <style>
-    /* Layout Specific Styles */
-    
-    /* Navigation */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background-color: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--color-light-gray);
-      padding: 1rem 0;
-      transition: var(--transition-smooth);
-    }
-     
-    .nav-container {
-      width: var(--container-width);
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .logo {
-      font-family: var(--font-heading);
-      font-size: var(--h4);
-      color: var(--color-primary);
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-    
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-    
-    .nav-links a {
-      font-weight: 500;
-      color: var(--color-text);
-      font-size: var(--text-sm);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    
-    .nav-links a:hover {
-      color: var(--color-secondary);
-    }
-    
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0.5rem;
-    }
-    
-    .hamburger-line {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background-color: var(--color-primary);
-      margin: 5px 0;
-      transition: var(--transition-smooth);
-    }
-    
-    /* Responsive Navigation */
-    @media (max-width: 900px) {
-      .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--color-background);
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease;
-        border-bottom: 1px solid transparent;
-      }
-      
-      .nav-links.active {
-        max-height: 500px;
-        border-bottom-color: var(--color-light-gray);
-      }
-      
-      .nav-links li {
-        width: 100%;
-        text-align: center;
-      }
-      
-      .nav-links a {
-        display: block;
-        padding: 1.5rem;
-        border-top: 1px solid var(--color-light-gray);
-      }
-      
-      .mobile-menu-btn {
-        display: block;
-      }
-    }
-    
-    /* Main Content Area Placeholder */
-    main {
-      min-height: 60vh;
-      padding: var(--section-padding);
-    }
-    
-    /* Premium Footer */
-    .site-footer { background-color: var(--color-footer-bg); color: var(--color-footer-text); padding: clamp(3rem, 8vw, 6rem) 0 2rem; }
-    
-    .footer-grid {
-      width: var(--container-width);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
-      gap: 3rem;
-      margin-bottom: 4rem;
-    }
-    
-    .footer-col h3 { color: var(--color-footer-text); font-size: var(--h4); margin-bottom: 1.5rem; }
-    
-    .footer-col p {
-      color: rgba(255, 255, 255, 0.8);
-      font-size: var(--text-sm);
-    }
-    
-    .footer-links {
-      list-style: none;
-    }
-    
-    .footer-links li {
-      margin-bottom: 0.75rem;
-    }
-    
-    .footer-links a {
-      color: rgba(255, 255, 255, 0.8);
-      font-size: var(--text-sm);
-    }
-    
-    .footer-links a:hover { color: var(--color-primary); padding-left: 5px; }
-    
-    .footer-bottom {
-      width: var(--container-width);
-      margin: 0 auto;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      font-size: clamp(0.75rem, 0.5vw + 0.7rem, 0.875rem);
-      color: rgba(255, 255, 255, 0.6);
-    }
-    /* === RESPONSIVE UTILITIES === */
-    .split-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    @media (max-width: 768px) {
-      .split-grid {
-        grid-template-columns: 1fr !important;
-        gap: 2rem !important;
-      }
-      .split-grid > div:last-child {
-        min-height: 280px !important;
-      }
-    }  </style>
-</head>
-<body>
-
-  <!-- Navigation -->
-  <header class="site-header">
-    <div class="nav-container">
-      <a href="index.html" class="logo">Dr. Narendra Bhatt</a>
-      
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
-      
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="clinical.html">Clinical</a></li>
-        <li><a href="research-hub.html">Research Hub</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-  </header>
-
-  <!-- Content Placeholder (will be replaced in specific pages) -->
-  <main>
-    <div class="container">
-      <h1 style="text-align: center; color: var(--color-primary); margin-top: 4rem;">Page Content Goes Here</h1>
-      <p style="text-align: center;">This is the layout shell containing the premium responsive navigation and footer.</p>
-    </div>
-  </main>
-
-  <!-- Premium Footer -->
-  <footer class="site-footer">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h3>Dr. Narendra Bhatt</h3>
-        <p>A leading Ayurvedic physician, consultant, and researcher dedicated to bridging ancient wisdom with modern scientific validation.</p>
-      </div>
-      
-      <div class="footer-col">
-        <h3>Quick Links</h3>
-        <ul class="footer-links">
-          <li><a href="about.html">About Dr. Bhatt</a></li>
-          <li><a href="clinical.html">Clinical Practice</a></li>
-          <li><a href="research-hub.html">Research Hub</a></li>
-          <li><a href="contact.html">Get in Touch</a></li>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layout | Dr. Narendra Bhatt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="nsb-system.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav-container" aria-label="Primary navigation">
+        <a class="logo" href="index.html">Dr. Narendra Bhatt <span>Ayurveda, Research, Strategy</span></a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open navigation" aria-expanded="false">
+          <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="clinical.html">Clinical</a></li>
+          <li><a href="research-hub.html">Research</a></li>
+          <li><a href="industry.html">Industry</a></li>
+          <li><a href="blog.html">Writing</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
-      </div>
-      
-      <div class="footer-col">
-        <h3>Contact</h3>
-        <p>Email: info@drnarendrabhatt.in</p>
-        <p>Location: Parel (East), Mumbai, India</p>
-      </div>
-    </div>
-    
-    <div class="footer-bottom">
-      <p>&copy; 2026 Dr. Narendra Bhatt. All rights reserved.</p>
-      <p>Designed with Semantic HTML5 & Vanilla CSS</p>
-    </div>
-  </footer>
+      </nav>
+    </header>
 
-  <!-- Interactive Logic -->
-  <script>
-    // Mobile Navigation Toggle
-    document.addEventListener('DOMContentLoaded', () => {
-      const mobileBtn = document.getElementById('mobileMenuBtn');
-      const navLinks = document.getElementById('navLinks');
-      
-      mobileBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        
-        // Toggle hamburger to X (simple animation)
-        const lines = document.querySelectorAll('.hamburger-line');
-        if (navLinks.classList.contains('active')) {
-          lines[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-          lines[1].style.opacity = '0';
-          lines[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-        } else {
-          lines[0].style.transform = 'none';
-          lines[1].style.opacity = '1';
-          lines[2].style.transform = 'none';
-        }
-      });
-      
-      // Setup scroll observer for fade-in elements
-      const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-      };
-      
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-      
-      document.querySelectorAll('.fade-in').forEach(element => {
-        observer.observe(element);
-      });
-    });
-  </script>
-</body>
+    <main>
+      <section class="section white">
+        <div class="section-inner">
+          <span class="section-kicker">Shared shell</span>
+          <h1 class="page-title">Reusable page <span class="display-serif">layout</span></h1>
+          <p class="lead">This file mirrors the production navigation, footer, and shared styling so future pages start from the same design system.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-col"><h3>Dr. Narendra Bhatt</h3><p>Ayurveda with objective reasoning and responsible scale.</p></div>
+        <div class="footer-col"><h3>Explore</h3><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="clinical.html">Clinical</a></li><li><a href="research-hub.html">Research</a></li><li><a href="industry.html">Industry</a></li></ul></div>
+        <div class="footer-col"><h3>Contact</h3><p>info@drnarendrabhatt.in</p><p>Parel East, Mumbai, India</p></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 Dr. Narendra Bhatt. All rights reserved.</span><span>CRIA / InventAYU</span></div>
+    </footer>
+    <script src="nsb-system.js"></script>
+  </body>
 </html>
-
-
-
-
-

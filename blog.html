@@ -1,306 +1,45 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog & Publications | Dr. Narendra Bhatt</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="nsb-system.css" />
-  <style>
-    body {
-      background: linear-gradient(135deg, #fff8e6 0%, #f4f7ed 38%, #eaf5fb 68%, #fffdf8 100%);
-    }
-    .blog-hero {
-      position: relative;
-      overflow: hidden;
-      padding: clamp(5rem, 9vw, 8rem) 0 clamp(3rem, 6vw, 5rem);
-    }
-    .blog-hero:before {
-      content: "";
-      position: absolute;
-      right: -8%;
-      top: 10%;
-      width: min(45vw, 620px);
-      aspect-ratio: 1;
-      background: conic-gradient(from 120deg, rgba(212, 154, 47, 0.26), rgba(59, 111, 135, 0.2), rgba(143, 79, 85, 0.2), rgba(29, 90, 67, 0.18));
-      clip-path: polygon(50% 0, 100% 38%, 82% 100%, 18% 100%, 0 38%);
-      filter: blur(4px);
-      opacity: 0.7;
-    }
-    .blog-hero .section-inner {
-      position: relative;
-    }
-    .blog-hero h1 {
-      max-width: 15ch;
-      font-family: var(--serif);
-      font-size: clamp(3.6rem, 8vw, 8rem);
-      line-height: 0.9;
-      color: var(--ink);
-    }
-    .blog-hero p {
-      max-width: 760px;
-      margin-top: 1.4rem;
-      color: var(--muted);
-      font-size: clamp(1.05rem, 1.6vw, 1.24rem);
-    }
-    .blog-section {
-      padding: clamp(4rem, 8vw, 7rem) 0;
-    }
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-    .blog-card {
-      min-height: 320px;
-      padding: 2rem;
-      border: 1px solid var(--line);
-      border-radius: 34px 12px 36px 14px;
-      background: linear-gradient(145deg, #fffdf8, #f5f1e8);
-      box-shadow: var(--soft-shadow);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      transition: transform 0.35s var(--ease), box-shadow 0.35s ease;
-    }
-    .blog-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow);
-    }
-    .blog-card:nth-child(3n+1) {
-      background: linear-gradient(145deg, #fffdf8, #fcf4e3);
-    }
-    .blog-card:nth-child(3n+2) {
-      background: linear-gradient(145deg, #fffdf8, #eef5f9);
-    }
-    .blog-card:nth-child(3n+3) {
-      background: linear-gradient(145deg, #fffdf8, #f5edf1);
-    }
-    .blog-card small {
-      color: var(--gold);
-      font-weight: 900;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      font-size: 0.72rem;
-    }
-    .blog-card .post-date {
-      color: var(--muted);
-      font-size: 0.78rem;
-      margin-top: 0.25rem;
-    }
-    .blog-card h3 {
-      font-family: var(--serif);
-      font-size: clamp(1.45rem, 2.4vw, 2.1rem);
-      line-height: 1.05;
-      margin: 0.8rem 0;
-      color: var(--ink);
-    }
-    .blog-card p {
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.45;
-    }
-    .publications-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-    .pub-card {
-      min-height: 280px;
-      padding: 2.2rem;
-      border: 1px solid var(--line);
-      border-radius: 34px 12px 36px 14px;
-      background: linear-gradient(145deg, #fffdf8, #eef5f9);
-      box-shadow: var(--soft-shadow);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      transition: transform 0.35s var(--ease), box-shadow 0.35s ease;
-    }
-    .pub-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow);
-    }
-    .pub-card.dark-theme {
-      background: linear-gradient(145deg, #fffdf8, #fcf4e3);
-    }
-    .pub-card.alt-theme {
-      background: linear-gradient(145deg, #fffdf8, #f5edf1);
-    }
-    .pub-card small {
-      color: var(--gold);
-      font-weight: 900;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      font-size: 0.72rem;
-    }
-    .pub-card h3 {
-      font-family: var(--serif);
-      font-size: clamp(1.6rem, 2.6vw, 2.35rem);
-      line-height: 1.05;
-      margin: 0.8rem 0;
-      color: var(--ink);
-    }
-    .pub-card p {
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.45;
-    }
-    @media(max-width:980px) {
-      .blog-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-    @media(max-width:720px) {
-      .blog-grid, .publications-grid {
-        grid-template-columns: 1fr;
-      }
-      .nav-links {
-        display: none;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header class="site-header" id="siteHeader">
-    <div class="nav-container">
-      <a href="index.html" class="logo">Dr. Narendra <span>Bhatt</span></a>
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation" aria-expanded="false">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="clinical.html">Clinical</a></li>
-        <li><a href="research-hub.html">Research</a></li>
-        <li><a href="industry.html">Industry</a></li>
-        <li><a href="about.html#policy">Policy</a></li>
-        <li><a href="about.html#academia">Academia</a></li>
-        <li><a href="blog.html" class="active">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-  </header>
-  <main>
-    <section class="blog-hero">
-      <div class="section-inner">
-        <span class="section-kicker">Publications & Reflections</span>
-        <h1>Dr. Narendra Bhatt's Blog</h1>
-        <p>Reflections on Ayurvedic clinical practice, research methodology, pharmacology, policy dialogues, and natural health product strategy.</p>
-      </div>
-    </section>
-
-    <!-- Main Blog Section -->
-    <section class="blog-section" id="blog">
-      <div class="section-inner">
-        <div class="split-heading">
-          <div>
-            <span class="section-kicker">Articles & Reflections</span>
-            <h2 class="section-title">Written commentary and clinical notes.</h2>
-          </div>
-          <p class="section-lede">Explore clinical case studies, explanations of classical therapeutic methods, and critical commentaries on contemporary natural product research.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Writing & Publications | Dr. Narendra Bhatt</title>
+    <meta name="description" content="Writing, articles, books, and publications by Dr. Narendra Bhatt." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="nsb-system.css" />
+  </head>
+  <body>
+    <header class="site-header"><nav class="nav-container" aria-label="Primary navigation"><a class="logo" href="index.html">Dr. Narendra Bhatt <span>Ayurveda, Research, Strategy</span></a><button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open navigation" aria-expanded="false"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button><ul class="nav-links" id="navLinks"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="clinical.html">Clinical</a></li><li><a href="research-hub.html">Research</a></li><li><a href="industry.html">Industry</a></li><li><a class="active" href="blog.html">Writing</a></li><li><a href="contact.html">Contact</a></li></ul></nav></header>
+    <main>
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="reveal"><span class="eyebrow">Writing</span><h1 class="page-title">Ideas made <span class="display-serif">public</span></h1><p class="lead">A concise library for articles, notes, and publication themes without repeating the broader biography from other pages.</p></div>
+          <div class="band-panel writing-callout reveal"><h3>Writing themes</h3><p>Clinical reasoning, research validation, Ayurveda integration, natural product strategy, and academic collaboration.</p></div>
         </div>
-
-        <div class="blog-grid">
-          <article class="blog-card">
-            <small>Clinical Practice</small>
-            <span class="post-date">May 24, 2026</span>
-            <h3>Clinical Reasoning in Ayurvedic Diagnostics</h3>
-            <p>An in-depth look at mapping classical Ayurvedic diagnostic principles to modern clinical settings, explaining case analysis and patient observation.</p>
-          </article>
-          <article class="blog-card">
-            <small>Research & Standards</small>
-            <span class="post-date">April 18, 2026</span>
-            <h3>The MATRIX Mode for Product Validation</h3>
-            <p>Analyzing how the MATRIX framework guides standardized research protocols without compromising traditional herbal preparation logic.</p>
-          </article>
-          <article class="blog-card">
-            <small>Translational Science</small>
-            <span class="post-date">March 11, 2026</span>
-            <h3>Bridging Classical Language and Modern Inquiry</h3>
-            <p>Guidelines for traditional practitioners and scientists to build a unified vocabulary when evaluating natural products in research facilities.</p>
-          </article>
-          <article class="blog-card">
-            <small>Public Policy</small>
-            <span class="post-date">February 02, 2026</span>
-            <h3>Ayurveda Integration in National Health</h3>
-            <p>Addressing standard safety guidelines, product validation, and access models necessary for public health-facing Ayurvedic programs.</p>
-          </article>
-          <article class="blog-card">
-            <small>Corporate Strategy</small>
-            <span class="post-date">January 15, 2026</span>
-            <h3>Natural Product Turnarounds & Business Scaling</h3>
-            <p>Drawing on key lessons from corporate leadership to explain how product validation drives sustainable sector growth.</p>
-          </article>
-          <article class="blog-card">
-            <small>Mentorship</small>
-            <span class="post-date">November 28, 2025</span>
-            <h3>Fostering Collaborative Academic Research</h3>
-            <p>The importance of mentor networks, thesis parameters, and cross-university dialogues in modern Ayurvedic postgraduate studies.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Books Section -->
-    <section class="blog-section paper" id="books">
-      <div class="section-inner">
-        <div class="split-heading">
-          <div>
-            <span class="section-kicker">Research Literature</span>
-            <h2 class="section-title">Authored books and monographs.</h2>
-          </div>
-          <p class="section-lede">Access published volumes, research manuals, and collaborative reference guides designed for clinicians, scholars, and industry strategists.</p>
-        </div>
-
-        <div class="publications-grid">
-          <div class="pub-card dark-theme">
-            <small>Academic Books</small>
-            <h3>RRA Book and Research Guidelines</h3>
-            <p>Collaborative reference guidelines outlining standardized research parameters, clinical studies, and validation frameworks for traditional Indian medicine.</p>
-          </div>
-          <div class="pub-card">
-            <small>Research Literature</small>
-            <h3>Monographs and Pharmacognosy Chapters</h3>
-            <p>Selected textbooks, scientific reports, and published catalog entries detailing botanical standardization, herb safety, and clinical protocols.</p>
+      </section>
+      <section class="section white">
+        <div class="section-inner">
+          <div class="article-list reveal">
+            <article class="article-row"><span class="meta">Clinical</span><div><h3>Clinical Reasoning in Ayurvedic Diagnostics</h3><p>How patient context, pattern recognition, and classical principles shape diagnosis.</p></div></article>
+            <article class="article-row"><span class="meta">Research</span><div><h3>The MATRIX Mode for Product Validation</h3><p>A framework for bringing Ayurvedic principles into objective research and product pathways.</p></div></article>
+            <article class="article-row"><span class="meta">Inquiry</span><div><h3>Bridging Classical Language and Modern Inquiry</h3><p>How traditional concepts can be communicated without flattening their meaning.</p></div></article>
+            <article class="article-row"><span class="meta">Policy</span><div><h3>Ayurveda Integration in National Health</h3><p>Responsible integration requires credibility, governance, and public-health clarity.</p></div></article>
+            <article class="article-row"><span class="meta">Industry</span><div><h3>Natural Product Turnarounds and Business Scaling</h3><p>Why growth in natural healthcare depends on product integrity and evidence.</p></div></article>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Industry Media Section -->
-    <section class="blog-section" id="industry-media">
-      <div class="section-inner">
-        <div class="split-heading">
-          <div>
-            <span class="section-kicker">Industry & IASTAM</span>
-            <h2 class="section-title">Industry reports and association media.</h2>
-          </div>
-          <p class="section-lede">Key reference materials, presentation proceedings, and publications concerning the Indian Association for the Study of Traditional Asian Medicine (IASTAM).</p>
+      </section>
+      <section class="section ceramic">
+        <div class="section-inner">
+          <div class="split-heading reveal"><div><span class="section-kicker">Publications</span><h2 class="section-title">Books, monographs, and research media.</h2></div><p class="section-lede">This page acts as a stable publication index and can later link each item to PDFs, videos, or external records as they become available.</p></div>
+          <div class="card-grid"><article class="card reveal"><span class="meta">Book</span><h3>RRA Book and Research Guidelines</h3><p>Research guidance for structured Ayurvedic inquiry.</p></article><article class="card reveal"><span class="meta">Monographs</span><h3>Pharmacognosy chapters</h3><p>Reference work connected to natural products and botanical standards.</p></article><article class="card reveal"><span class="meta">Industry</span><h3>Reports and association media</h3><p>Public-facing contributions around Ayurveda and healthcare strategy.</p></article></div>
         </div>
-
-        <div class="publications-grid">
-          <div class="pub-card alt-theme">
-            <small>IASTAM Reference</small>
-            <h3>Traditional Medicine Association Media</h3>
-            <p>Presentations, association reviews, and panels detailing IASTAM's institutional growth and its collaborative dialogue platforms.</p>
-          </div>
-          <div class="pub-card dark-theme">
-            <small>Industry Strategy</small>
-            <h3>Sector Growth Reports & Public Address</h3>
-            <p>Scientific reviews, industry addresses, and strategic plans highlighting standardization pathways and corporate growth in natural health products.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-  <footer class="site-footer"><div class="footer-grid"><div class="footer-col"><h3>Dr. Narendra Bhatt</h3><p>A senior Ayurvedic physician, researcher, strategist, and policy and academic voice.</p></div><div class="footer-col"><h3>Navigate</h3><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="research-hub.html">Research Hub</a></li><li><a href="industry.html">Industry Impact</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Get in Touch</a></li></ul></div><div class="footer-col"><h3>Contact</h3><p>info@drnarendrabhatt.in</p><p>Parel East, Mumbai, India</p></div></div><div class="footer-bottom"><p>&copy; 2026 Dr. Narendra Bhatt. All rights reserved.</p><p>CRIA / InventAYU</p></div></footer>
-  <script src="nsb-system.js"></script>
-</body>
+      </section>
+    </main>
+    <a class="floating-cta" href="contact.html" aria-label="Contact Dr. Narendra Bhatt">→</a>
+    <footer class="site-footer"><div class="footer-grid"><div class="footer-col"><h3>Writing</h3><p>Articles and publications from Dr. Narendra Bhatt's clinical, research, and industry work.</p></div><div class="footer-col"><h3>Explore</h3><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="research-hub.html">Research</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="footer-col"><h3>Contact</h3><p>info@drnarendrabhatt.in</p><p>Parel East, Mumbai, India</p></div></div><div class="footer-bottom"><span>&copy; 2026 Dr. Narendra Bhatt. All rights reserved.</span><span>CRIA / InventAYU</span></div></footer>
+    <script src="nsb-system.js"></script>
+  </body>
 </html>
