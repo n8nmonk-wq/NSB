@@ -334,14 +334,57 @@ h1 {
 
 .hero-dossier {
   display: grid;
-  grid-template-columns: 0.72fr 1fr;
+  grid-template-columns: 1fr;
   gap: 24px;
   align-items: stretch;
 }
 
+.hero-chips {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+}
+
+@media (max-width: 720px) {
+  .hero-chips {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hero-chips .note-card {
+  padding: 20px 24px;
+  border-radius: var(--radius-xxl);
+  box-shadow: var(--shadow-sticky);
+  border: 1px solid var(--hairline-soft);
+  background: var(--canvas);
+}
+
+.hero-chips .note-card.dark-note {
+  color: var(--canvas);
+  background: var(--ink-deep);
+  border-color: var(--ink-deep);
+}
+
+.hero-chips .note-card strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: inherit;
+}
+
+.hero-chips .note-card p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: inherit;
+}
+
 .portrait-stack {
   position: relative;
-  min-height: 610px;
+  height: 500px;
   overflow: hidden;
   border-radius: var(--radius-xxxl);
   background: var(--surface-soft);
@@ -350,7 +393,6 @@ h1 {
 .portrait-stack img {
   width: 100%;
   height: 100%;
-  min-height: 610px;
   object-fit: cover;
   filter: saturate(1.02) contrast(1.01);
 }
@@ -1115,21 +1157,23 @@ h1 {
   align-items: center;
 }
 .portrait-stack {
-  min-height: clamp(500px, 48vw, 620px);
+  height: clamp(450px, 42vw, 520px);
+  min-height: 0;
   border-radius: clamp(28px, 2.4vw, 36px);
   isolation: isolate;
 }
 .portrait-stack img {
-  min-height: clamp(500px, 48vw, 620px);
+  height: 100%;
+  min-height: 0;
   object-fit: cover;
-  object-position: center 18%;
+  object-position: center 10%;
   transform: scale(1.01);
 }
 .archive-hero .portrait-stack img,
 .page-hero.policy .portrait-stack img,
 .page-hero.research .portrait-stack img,
 .page-hero.industry .portrait-stack img {
-  object-position: center 18%;
+  object-position: center 10%;
 }
 .page-hero.clinical .portrait-stack img,
 .chapter-link img[src*="N 33"] {
@@ -1137,7 +1181,7 @@ h1 {
 }
 .archive-hero img[src*="DrNarendraBhatt.jpg"],
 .about .portrait-stack img {
-  object-position: center 22%;
+  object-position: center 14%;
 }
 .chapter-link {
   border-radius: 28px;
@@ -1194,7 +1238,8 @@ h1 {
   }
   .portrait-stack,
   .portrait-stack img {
-    min-height: 460px;
+    height: 440px;
+    min-height: 0;
   }
   .feature-room.section {
     padding: 40px;
@@ -1206,7 +1251,10 @@ h1 {
 }
 @media (max-width: 680px) {
   .portrait-stack,
-  .portrait-stack img,
+  .portrait-stack img {
+    height: 340px;
+    min-height: 0;
+  }
   .photo-run figure,
   .photo-run figure:first-child {
     min-height: 330px;
@@ -1277,28 +1325,10 @@ h1 {
   border-color: rgba(9,22,27,.30);
 }
 
-.page-hero.clinical .portrait-stack,
-.archive-hero .portrait-stack:has(img[src*="DrNarendraBhatt.jpg"]) {
-  background: linear-gradient(145deg, #f9fbfa, #eaf0ef);
-}
-
-.page-hero.clinical .portrait-stack img,
-.archive-hero .portrait-stack img[src*="DrNarendraBhatt.jpg"] {
-  object-fit: contain;
-  object-position: center center;
-  transform: none;
-  padding: clamp(10px, 1.4vw, 18px);
-}
-
 @media (max-width: 680px) {
   .feature-room.section {
     margin-top: 42px;
     margin-bottom: 42px;
-  }
-
-  .page-hero.clinical .portrait-stack img,
-  .archive-hero .portrait-stack img[src*="DrNarendraBhatt.jpg"] {
-    padding: 8px;
   }
 }
 
