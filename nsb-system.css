@@ -20,7 +20,7 @@
   --radius-feature: 40px;
   --radius-full: 100px;
   --shadow-sticky: rgba(20, 22, 26, 0.3) 0 1px 4px 0;
-  --container: min(1280px, calc(100vw - 64px));
+  --container: min(1380px, calc(100vw - 64px));
   --sans: Montserrat, Inter, "Helvetica Neue", Arial, sans-serif;
   --display: Montserrat, Inter, "Helvetica Neue", Arial, sans-serif;
 }
@@ -568,7 +568,7 @@ h1 {
   background:
     linear-gradient(rgba(10, 19, 23, 0.56), rgba(10, 19, 23, 0.56)),
     var(--room-image, linear-gradient(135deg, #0a1317, #444950));
-  background-position: center;
+  background-position: var(--room-image-position, center);
   background-size: cover;
   border-radius: var(--radius-feature);
 }
@@ -579,6 +579,10 @@ h1 {
   grid-template-columns: minmax(0, 0.86fr) minmax(320px, 0.5fr);
   gap: clamp(32px, 6vw, 80px);
   align-items: start;
+}
+
+.room-grid > div:first-child {
+  max-width: 580px;
 }
 
 .feature-room .section-title,
@@ -687,6 +691,7 @@ h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
 }
 
 .photo-run figcaption {
@@ -1068,4 +1073,280 @@ h1 {
   .footer-bottom {
     flex-direction: column;
   }
+}
+
+/* Hero and Background Image Crop Alignments */
+.page-hero.clinical .portrait-stack img {
+  object-position: 65% top;
+}
+.page-hero.research .portrait-stack img {
+  object-position: center 20%;
+}
+.page-hero.industry .portrait-stack img {
+  object-position: center 20%;
+}
+.page-hero.policy .portrait-stack img {
+  object-position: center 20%;
+}
+.archive-hero .portrait-stack img {
+  object-position: center 10%;
+}
+.archive-hero img[src*="DrNarendraBhatt.jpg"] {
+  object-position: center 15%;
+}
+
+/* Homepage Chapters Card Focus Alignments */
+.chapter-link img[src*="N 33.jpg"] {
+  object-position: 65% top;
+}
+.chapter-link img[src*="MMP_7337"] {
+  object-position: center top;
+}
+.chapter-link img[src*="N 28.JPG"] {
+  object-position: center top;
+}
+.chapter-link img[src*="N 31.JPG"] {
+  object-position: center top;
+}
+
+
+/* Attentive visual QA pass: safer portraits, padded overlays, responsive polish */
+.hero-inner {
+  align-items: center;
+}
+.portrait-stack {
+  min-height: clamp(500px, 48vw, 620px);
+  border-radius: clamp(28px, 2.4vw, 36px);
+  isolation: isolate;
+}
+.portrait-stack img {
+  min-height: clamp(500px, 48vw, 620px);
+  object-fit: cover;
+  object-position: center 18%;
+  transform: scale(1.01);
+}
+.archive-hero .portrait-stack img,
+.page-hero.policy .portrait-stack img,
+.page-hero.research .portrait-stack img,
+.page-hero.industry .portrait-stack img {
+  object-position: center 18%;
+}
+.page-hero.clinical .portrait-stack img,
+.chapter-link img[src*="N 33"] {
+  object-position: 42% 24%;
+}
+.archive-hero img[src*="DrNarendraBhatt.jpg"],
+.about .portrait-stack img {
+  object-position: center 22%;
+}
+.chapter-link {
+  border-radius: 28px;
+}
+.chapter-link img {
+  aspect-ratio: 16 / 10;
+  border-radius: 22px;
+  object-position: center 22%;
+}
+.chapter-link img[src*="MMP_7337"] {
+  object-position: 48% 18%;
+}
+.chapter-link img[src*="N 31"] {
+  object-position: 50% 20%;
+}
+.feature-room.section {
+  padding: clamp(54px, 7vw, 88px);
+  min-height: clamp(520px, 46vw, 640px);
+  display: grid;
+  align-items: center;
+}
+.feature-room .section-title,
+.feature-room .section-lede,
+.feature-room .section-kicker {
+  text-shadow: 0 2px 16px rgba(0,0,0,.28);
+}
+.feature-room .section-lede {
+  max-width: 640px;
+}
+.room-panel {
+  max-width: 460px;
+  justify-self: end;
+  background: rgba(10, 19, 23, .42);
+  border: 1px solid rgba(255,255,255,.20);
+}
+.photo-run figure {
+  border-radius: 30px;
+}
+.photo-run img {
+  object-position: center 18%;
+}
+.photo-run img[src*="N%2021"],
+.photo-run img[src*="N 21"],
+.photo-run img[src*="N%2026"],
+.photo-run img[src*="N 26"] {
+  object-position: center 16%;
+}
+@media (max-width: 980px) {
+  .hero-inner {
+    gap: 32px;
+  }
+  .hero-dossier {
+    grid-template-columns: 1fr;
+  }
+  .portrait-stack,
+  .portrait-stack img {
+    min-height: 460px;
+  }
+  .feature-room.section {
+    padding: 40px;
+  }
+  .room-panel {
+    justify-self: stretch;
+    max-width: none;
+  }
+}
+@media (max-width: 680px) {
+  .portrait-stack,
+  .portrait-stack img,
+  .photo-run figure,
+  .photo-run figure:first-child {
+    min-height: 330px;
+  }
+  .feature-room.section {
+    padding: 28px 22px;
+    min-height: auto;
+  }
+  .room-grid {
+    gap: 24px;
+  }
+  .chapter-link img {
+    aspect-ratio: 5 / 3;
+  }
+}
+/* Client QA refinement: remove portrait date chips, clean feature panels, preserve faces */
+.portrait-stack::after {
+  content: none !important;
+  display: none !important;
+}
+
+.feature-room.section {
+  margin-top: clamp(56px, 7vw, 104px);
+  margin-bottom: clamp(56px, 7vw, 104px);
+  color: var(--ink-deep);
+  background:
+    radial-gradient(circle at 14% 18%, rgba(17, 120, 183, .10), transparent 34%),
+    radial-gradient(circle at 88% 16%, rgba(247, 183, 49, .12), transparent 30%),
+    linear-gradient(135deg, rgba(255,255,255,.98), rgba(244,248,247,.96));
+  border: 1px solid rgba(9, 22, 27, .10);
+  box-shadow: 0 22px 70px rgba(9, 22, 27, .10);
+}
+
+.feature-room.section::before,
+.feature-room.section::after {
+  display: none;
+}
+
+.feature-room .section-title,
+.feature-room .section-kicker,
+.feature-room .section-lede,
+.feature-room p {
+  color: var(--ink-deep);
+  text-shadow: none;
+}
+
+.feature-room .section-lede {
+  color: var(--muted);
+}
+
+.feature-room .section-kicker::before {
+  background: var(--accent-blue);
+}
+
+.room-panel {
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(9,22,27,.12);
+  box-shadow: 0 16px 44px rgba(9, 22, 27, .10);
+  color: var(--ink-deep);
+}
+
+.room-panel h3,
+.room-panel li {
+  color: var(--ink-deep);
+}
+
+.room-panel li {
+  border-color: rgba(9,22,27,.30);
+}
+
+.page-hero.clinical .portrait-stack,
+.archive-hero .portrait-stack:has(img[src*="DrNarendraBhatt.jpg"]) {
+  background: linear-gradient(145deg, #f9fbfa, #eaf0ef);
+}
+
+.page-hero.clinical .portrait-stack img,
+.archive-hero .portrait-stack img[src*="DrNarendraBhatt.jpg"] {
+  object-fit: contain;
+  object-position: center center;
+  transform: none;
+  padding: clamp(10px, 1.4vw, 18px);
+}
+
+@media (max-width: 680px) {
+  .feature-room.section {
+    margin-top: 42px;
+    margin-bottom: 42px;
+  }
+
+  .page-hero.clinical .portrait-stack img,
+  .archive-hero .portrait-stack img[src*="DrNarendraBhatt.jpg"] {
+    padding: 8px;
+  }
+}
+
+/* Client QA refinement: remove broken hero portrait-card layout on text-led pages */
+.hero-dossier.no-portrait {
+  grid-template-columns: 1fr;
+  max-width: 620px;
+  justify-self: start;
+}
+
+.hero-dossier.no-portrait .dossier-notes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.hero-dossier.no-portrait .note-card {
+  min-height: 230px;
+}
+
+@media (max-width: 720px) {
+  .hero-dossier.no-portrait .dossier-notes {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-dossier.no-portrait .note-card {
+    min-height: auto;
+  }
+}
+
+/* Ecosystem links across Dr. Bhatt platforms */
+.ecosystem-links {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.ecosystem-links a {
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid rgba(9,22,27,.16);
+  border-radius: 999px;
+  padding: 7px 12px;
+  background: rgba(255,255,255,.72);
+}
+
+.ecosystem-links a:hover {
+  color: var(--primary);
+  border-color: rgba(0, 102, 255, .28);
 }
