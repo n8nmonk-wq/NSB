@@ -271,7 +271,11 @@ h1 {
 }
 
 .page-title {
-  max-width: 13ch;
+  max-width: 17ch;
+}
+
+.page-hero .page-title {
+  text-wrap: balance;
 }
 
 .display-accent {
@@ -507,6 +511,7 @@ h1 {
   letter-spacing: 0;
   line-height: 1.12;
   font-feature-settings: "ss01", "ss02";
+  text-wrap: balance;
 }
 
 .section-lede {
@@ -515,6 +520,51 @@ h1 {
   color: var(--slate);
   font-size: 18px;
   line-height: 1.44;
+}
+
+.centered-cta .section-title {
+  max-width: 780px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.grouped-section .split-heading {
+  margin-bottom: 28px;
+}
+
+.group-block {
+  display: grid;
+  gap: 24px;
+  padding: 32px 0;
+  border-top: 1px solid var(--hairline-soft);
+}
+
+.group-block:first-of-type {
+  border-top: 0;
+}
+
+.group-copy {
+  max-width: 860px;
+}
+
+.group-copy h3 {
+  margin-bottom: 10px;
+  color: var(--ink-deep);
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 500;
+  line-height: 1.18;
+  text-wrap: balance;
+}
+
+.group-copy p {
+  max-width: 780px;
+  margin-bottom: 0;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.grouped-models {
+  margin-top: 8px;
 }
 
 .chapter-board {
