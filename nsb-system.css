@@ -529,9 +529,24 @@ h1 {
 
 .centered-cta .section-title {
   max-width: 940px;
-  font-size: clamp(30px, 3.4vw, 44px);
+  font-size: clamp(28px, 3vw, 40px);
   margin-right: auto;
   margin-left: auto;
+}
+
+.centered-cta .section-kicker {
+  margin-bottom: 12px;
+}
+
+.centered-cta .section-lede {
+  max-width: 900px;
+  font-size: 16px;
+  margin-bottom: 16px !important;
+}
+
+.centered-cta .button {
+  min-height: 42px;
+  padding: 10px 22px;
 }
 
 .centered-cta .section-inner {
@@ -539,7 +554,7 @@ h1 {
 }
 
 .centered-cta {
-  padding: clamp(40px, 5vw, 64px) 0 !important;
+  padding: clamp(28px, 3vw, 42px) 0 !important;
 }
 
 .grouped-section .split-heading {
@@ -660,6 +675,26 @@ h1 {
   background: var(--canvas);
   color: var(--ink-deep);
   font-size: 14px;
+  font-weight: 700;
+}
+
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.footer-social span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 6px 10px;
+  border: 1px solid var(--hairline-soft);
+  border-radius: var(--radius-full);
+  color: var(--ink-deep);
+  background: var(--surface-tint);
+  font-size: 12px;
   font-weight: 700;
 }
 
@@ -942,6 +977,10 @@ h1 {
   list-style: none;
 }
 
+.international-section .publication-list {
+  margin-top: 34px;
+}
+
 .publication-list li,
 .award-list li {
   padding: 24px;
@@ -973,6 +1012,11 @@ h1 {
   border-radius: var(--radius-xxxl);
   background: var(--canvas);
   box-shadow: var(--shadow-sticky);
+}
+
+.international-section .sticky-note {
+  position: static;
+  margin-top: 266px;
 }
 
 .sticky-note h2 {
@@ -1019,6 +1063,40 @@ h1 {
   border: 1px solid var(--hairline-soft);
   border-radius: var(--radius-xxxl);
   background: var(--canvas);
+}
+
+.contact-routes {
+  display: grid;
+  gap: 18px;
+  padding: 32px;
+  border: 1px solid var(--hairline-soft);
+  border-radius: var(--radius-xxxl);
+  background: var(--canvas);
+}
+
+.route-list {
+  display: grid;
+  gap: 14px;
+}
+
+.route-card {
+  display: grid;
+  gap: 6px;
+  padding: 18px;
+  border: 1px solid var(--hairline-soft);
+  border-radius: var(--radius-xl);
+  background: var(--surface-tint);
+}
+
+.route-card strong {
+  color: var(--ink-deep);
+  font-size: 16px;
+}
+
+.route-card span {
+  color: var(--slate);
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .contact-form label {
@@ -1182,13 +1260,13 @@ h1 {
 
 @media (max-width: 680px) {
   :root {
-    --container: min(100vw - 32px, 1280px);
+    --container: min(100vw - 48px, 1280px);
   }
 
   .section,
   .page-hero,
   .archive-hero {
-    padding: 48px 0;
+    padding: 40px 0;
   }
 
   .archive-hero {
@@ -1271,6 +1349,26 @@ h1 {
 
   .footer-bottom {
     flex-direction: column;
+  }
+
+  .centered-cta {
+    padding: 26px 0 !important;
+  }
+
+  .centered-cta .section-lede {
+    margin-bottom: 18px !important;
+  }
+
+  .international-section .sticky-note {
+    margin-top: 22px;
+  }
+
+  .international-section .publication-list {
+    margin-top: 24px;
+  }
+
+  .contact-routes {
+    padding: 22px;
   }
 }
 
@@ -1592,7 +1690,7 @@ h1 {
 /* Small mobile optimizations: 320px - 324px */
 @media (max-width: 360px) {
   :root {
-    --container: calc(100vw - 20px);
+    --container: calc(100vw - 32px);
   }
 
   .nav-container {
