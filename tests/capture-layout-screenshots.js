@@ -8,7 +8,7 @@ const outputDir = path.resolve(
   "C:/Users/pranj/.codex/visualizations/2026/09/10/01a08bad-7cfb-7641-a572-3fcaddade3c4/nsb",
 );
 
-const pages = ["index.html", "research-hub.html", "industry.html", "academic-policy.html"];
+const pages = ["index.html", "clinical.html", "research-hub.html", "industry.html", "academic-policy.html"];
 const sizes = [
   { name: "desktop", width: 1366, height: 768 },
   { name: "mobile", width: 390, height: 844 },

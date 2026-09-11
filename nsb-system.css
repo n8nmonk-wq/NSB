@@ -197,7 +197,7 @@ p {
 .section,
 .page-hero,
 .archive-hero {
-  padding: clamp(64px, 8vw, 120px) 0;
+  padding: clamp(40px, 4vw, 60px) 0;
 }
 
 .section-inner,
@@ -217,7 +217,7 @@ p {
 }
 
 .archive-hero {
-  min-height: min(860px, calc(100vh - 72px));
+  min-height: auto;
 }
 
 .page-hero.clinical,
@@ -234,6 +234,11 @@ p {
   grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
   gap: clamp(32px, 6vw, 80px);
   align-items: center;
+}
+
+.page-hero .hero-inner,
+.archive-hero .hero-inner {
+  min-height: clamp(360px, 45vh, 500px);
 }
 
 .eyebrow,
@@ -263,7 +268,7 @@ h1 {
   max-width: 12ch;
   margin-bottom: 24px;
   font-family: var(--display);
-  font-size: clamp(44px, 6vw, 72px);
+  font-size: clamp(42px, 5.2vw, 68px);
   font-weight: 500;
   letter-spacing: 0;
   line-height: 1.08;
@@ -288,7 +293,7 @@ h1 {
   max-width: 690px;
   margin-bottom: 32px;
   color: var(--charcoal);
-  font-size: clamp(18px, 2vw, 24px);
+  font-size: clamp(17px, 1.6vw, 22px);
   font-weight: 400;
   letter-spacing: -0.16px;
   line-height: 1.44;
@@ -460,7 +465,7 @@ h1 {
 
 .stat-strip {
   width: var(--container);
-  margin: -48px auto 0;
+  margin: 28px auto 0;
   position: relative;
   z-index: 4;
   display: grid;
@@ -469,8 +474,8 @@ h1 {
 }
 
 .stat-tile {
-  min-height: 154px;
-  padding: 32px;
+  min-height: 118px;
+  padding: 24px;
   background: var(--canvas);
   box-shadow: var(--shadow-sticky);
 }
@@ -479,7 +484,7 @@ h1 {
   display: block;
   margin-bottom: 10px;
   color: var(--ink-deep);
-  font-size: clamp(28px, 3.6vw, 56px);
+  font-size: clamp(24px, 2.6vw, 42px);
   font-weight: 500;
   line-height: 1.1;
   overflow-wrap: break-word;
@@ -523,9 +528,18 @@ h1 {
 }
 
 .centered-cta .section-title {
-  max-width: 780px;
+  max-width: 940px;
+  font-size: clamp(30px, 3.4vw, 44px);
   margin-right: auto;
   margin-left: auto;
+}
+
+.centered-cta .section-inner {
+  max-width: 980px !important;
+}
+
+.centered-cta {
+  padding: clamp(40px, 5vw, 64px) 0 !important;
 }
 
 .grouped-section .split-heading {
@@ -565,6 +579,88 @@ h1 {
 
 .grouped-models {
   margin-top: 8px;
+}
+
+.merge-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(28px, 5vw, 64px);
+  padding: clamp(28px, 4vw, 48px);
+  border: 1px solid var(--hairline-soft);
+  border-radius: 24px;
+  background: var(--canvas);
+  box-shadow: var(--shadow-sticky);
+}
+
+.merge-panel + .merge-panel {
+  margin-top: 24px;
+}
+
+.dark .merge-panel {
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.merge-panel h3 {
+  margin-bottom: 14px;
+  color: var(--ink-deep);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 500;
+  line-height: 1.16;
+  text-wrap: balance;
+}
+
+.merge-panel p {
+  margin-bottom: 0;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.merge-list {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.merge-list li {
+  padding: 16px 0;
+  border-top: 1px solid var(--hairline-soft);
+  color: var(--slate);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.merge-list li:first-child {
+  border-top: 0;
+}
+
+.merge-list strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--ink-deep);
+}
+
+.social-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.social-strip a,
+.social-strip span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 10px 18px;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-full);
+  background: var(--canvas);
+  color: var(--ink-deep);
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .chapter-board {
@@ -1133,6 +1229,15 @@ h1 {
     grid-template-columns: 1fr;
   }
 
+  .merge-panel {
+    grid-template-columns: 1fr;
+    padding: 22px;
+  }
+
+  .merge-list li {
+    padding: 12px 0;
+  }
+
   .stat-strip {
     margin-top: 0;
   }
@@ -1209,7 +1314,7 @@ h1 {
   align-items: center;
 }
 .portrait-stack {
-  height: clamp(450px, 42vw, 520px);
+  height: clamp(340px, 32vw, 430px);
   min-height: 0;
   border-radius: clamp(28px, 2.4vw, 36px);
   isolation: isolate;
