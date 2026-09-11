@@ -58,17 +58,31 @@
        </ul>
       </div>
      </div>
-     <div class="contact-routes reveal">
-      <span class="section-kicker">Enquiry routes</span>
+     <form class="contact-form reveal" data-contact-email="info@drnarendrabhatt.in">
+      <span class="section-kicker">Enquiry form</span>
       <h2 class="section-title">Write with a clear purpose</h2>
-      <p>Select the closest route and email the team with the relevant details so the enquiry can be directed properly.</p>
-      <div class="route-list">
-       <a class="route-card" href="mailto:info@drnarendrabhatt.in?subject=Clinical consultation enquiry"><strong>Clinical consultation</strong><span>For patient concerns, reports, duration, medication, and consultation mode.</span></a>
-       <a class="route-card" href="mailto:info@drnarendrabhatt.in?subject=Research collaboration enquiry"><strong>Research collaboration</strong><span>For study ideas, institutional work, validation questions, and publications.</span></a>
-       <a class="route-card" href="mailto:info@drnarendrabhatt.in?subject=Industry advisory enquiry"><strong>Industry advisory</strong><span>For product category, market stage, standards, and strategic goals.</span></a>
-       <a class="route-card" href="mailto:info@drnarendrabhatt.in?subject=Policy or academic enquiry"><strong>Policy / academic dialogue</strong><span>For panels, teaching, workshops, governance, or institutional exchange.</span></a>
-      </div>
-     </div>
+      <p>Select the closest route and include enough context for the team to direct the enquiry properly.</p>
+      <label>Name
+       <input name="name" type="text" autocomplete="name" required />
+      </label>
+      <label>Email
+       <input name="email" type="email" autocomplete="email" required />
+      </label>
+      <label>Purpose of Enquiry
+       <select name="purpose" required>
+        <option value="Clinical consultation">Clinical consultation</option>
+        <option value="Research collaboration">Research collaboration</option>
+        <option value="Industry advisory">Industry advisory</option>
+        <option value="Policy dialogue">Policy dialogue</option>
+        <option value="Academic collaboration">Academic collaboration</option>
+        <option value="Other enquiry">Other enquiry</option>
+       </select>
+      </label>
+      <label>Message
+       <textarea name="message" required></textarea>
+      </label>
+      <button class="button primary" type="submit">Submit Enquiry</button>
+     </form>
     </div>
    </section>
   </main>

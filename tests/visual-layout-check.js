@@ -69,6 +69,10 @@ async function main() {
   await assertAbsent(page, 'header a[href="clinical.html"]', "Physician should be clubbed into Home instead of public navigation");
   await assertAbsent(page, "#site-cta .social-strip", "social links should not appear as a standalone CTA section");
   await assert.ok((await page.locator("footer .footer-social").count()) >= 1, "social links should live in the footer");
+  const ctaLinks = await page.locator("#site-cta .hero-actions a").evaluateAll((links) =>
+    links.map((link) => link.getAttribute("href")),
+  );
+  await assert.equal(new Set(ctaLinks).size, ctaLinks.length, "home CTA links should lead to distinct destinations");
   const quotePanel = await box(page.locator(".quote-panel").last());
   const ctaSection = await box(page.locator("#site-cta"));
   const ctaTitleBox = await box(ctaTitle);
@@ -80,6 +84,12 @@ async function main() {
 
   await page.goto(fileUrl("industry.html"));
   await assert.equal(await page.locator("#industry-strategy .field-card").count(), 0, "industry merged section should not keep old standalone cards");
+  const industryTimeline = await page.locator("#industry-map .timeline-item time").allTextContents();
+  await assert.deepEqual(
+    industryTimeline.map((item) => item.trim()),
+    ["2008 onward", "2007-2008", "2003-2007", "1993-1997", "1982-1987"],
+    "industry timeline should be reverse chronological",
+  );
 
   await page.goto(fileUrl("academic-policy.html"));
   const internationalHeading = await box(page.locator(".international-section .section-title"));
@@ -89,10 +99,13 @@ async function main() {
   assert.ok(policyNote.y >= firstInternationalItem.y - 8, "policy side note should align with the content, not crowd the heading");
 
   await page.goto(fileUrl("contact.html"));
-  await assertAbsent(page, "form", "contact page should not use a local form that triggers insecure browser warnings");
-  await assertAbsent(page, "input", "contact page should not expose insecure local input fields");
-  await assertAbsent(page, "select", "contact page should not expose insecure local select fields");
-  await assertAbsent(page, "textarea", "contact page should not expose insecure local textareas");
+  await assert.equal(await page.locator("form.contact-form").count(), 1, "contact page should keep the enquiry form");
+  await assert.equal(await page.locator("form.contact-form").getAttribute("action"), null, "contact form should avoid a non-HTTPS static form action");
+  await assert.equal(await page.locator('form.contact-form input[name="name"]').count(), 1, "contact form should ask for a name");
+  await assert.equal(await page.locator('form.contact-form input[name="email"]').count(), 1, "contact form should ask for an email");
+  await assert.equal(await page.locator('form.contact-form select[name="purpose"]').count(), 1, "contact form should include a purpose selector");
+  await assert.equal(await page.locator('form.contact-form textarea[name="message"]').count(), 1, "contact form should include a message field");
+  await assert.equal(await page.locator('form.contact-form button[type="submit"]').count(), 1, "contact form should include a submit button");
   const contactBody = await page.locator("body").innerText();
   assert.ok(!/browser warnings|not secure|autofill/i.test(contactBody), "contact page should not show technical browser-warning language");
 

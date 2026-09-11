@@ -26,6 +26,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  const contactForm = document.querySelector(".contact-form[data-contact-email]");
+  if (contactForm) {
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formData = new FormData(contactForm);
+      const recipient = contactForm.dataset.contactEmail;
+      const purpose = formData.get("purpose") || "Website enquiry";
+      const body = [
+        `Name: ${formData.get("name") || ""}`,
+        `Email: ${formData.get("email") || ""}`,
+        `Purpose: ${purpose}`,
+        "",
+        formData.get("message") || "",
+      ].join("\n");
+      window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(purpose)}&body=${encodeURIComponent(body)}`;
+    });
+  }
+
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
