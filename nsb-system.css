@@ -1803,3 +1803,15 @@ h1 {
     bottom: 14px;
   }
 }
+
+/* Spacing and responsiveness fixes (Home and Clinical bands) */
+.quote-panel { margin-block: clamp(32px, 5vw, 72px); }
+.quote-panel blockquote { font-size: clamp(24px, 3.4vw, 40px); line-height: 1.25; overflow-wrap: anywhere; }
+.section .grid-3, .section .grid-4 { gap: clamp(16px, 2vw, 28px); }
+.section .grid-3 > .field-card, .section .grid-4 > .field-card { min-width: 0; }
+.merge-panel img { display: block; width: 100%; height: auto; }
+.chikitsa-sutra { overflow-wrap: anywhere; }
+@media (max-width: 680px) {
+  .quote-panel { padding: 32px 24px; }
+  .section-inner > .split-heading { gap: 12px; }
+}
