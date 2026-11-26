@@ -10,91 +10,61 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="nsb-system.css" />
+  <link rel="stylesheet" href="nsb-premium.css?v=12" />
  </head>
- <body>
+ <body class="premium">
   <header class="site-header">
    <nav class="nav-container" aria-label="Primary navigation">
     <a class="logo" href="index.html">Dr. Narendra Bhatt <span>Living archive of applied Ayurveda</span></a>
     <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open navigation" aria-expanded="false"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button>
     <ul class="nav-links" id="navLinks">
      <li><a href="index.html">Home</a></li>
-     <li><a href="research-hub.html">Research</a></li>
-     <li><a href="industry.html">Industry</a></li>
-     <li><a href="academic-policy.html">Policy</a></li>
+     <li><a href="clinical.html">Clinical Excellence</a></li>
+     <li><a href="research-hub.html">Innovation</a></li>
+     <li><a href="industry.html">Strategy &amp; Management</a></li>
+     <li><a href="academic-policy.html">Leadership</a></li>
      <li><a class="active" href="contact.html">Contact</a></li>
     </ul>
    </nav>
   </header>
 
   <main>
-   <section class="page-hero policy">
-    <div class="hero-inner">
-     <div class="reveal">
-      <span class="eyebrow">Consultation and Collaboration</span>
-      <h1 class="page-title">Start a focused conversation.</h1>
-      <p class="lead">For clinical guidance, research dialogue, industry advisory, or policy and academic collaboration, share the purpose clearly so the right route can be identified.</p>
-     </div>
-     <figure class="portrait-stack reveal"><img src="NSBPhotosSelectedForWebsite/Lakshanik/N%2011.jpg" alt="Dr. Narendra Bhatt portrait for contact page" /></figure>
+   <section class="hero compact">
+    <div class="wrap hero-grid">
+     <div class="reveal"><h1>Start a <span class="grad">focused conversation</span></h1><p class="lead">For clinical guidance, research dialogue, industry advisory or policy and academic collaboration, share the purpose clearly so the right route can be identified.</p><div class="actions"><a class="btn primary" href="#enquiry">Write an enquiry<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></div></div>
+     <figure class="frame reveal"><div class="img"><img src="NSBPhotosSelectedForWebsite/Lakshanik/N%2011.jpg" alt="Dr. Narendra Bhatt" style="object-position:center 14%" /></div></figure>
     </div>
    </section>
 
-   <section class="section">
-    <div class="section-inner contact-grid">
-     <div class="contact-card reveal">
-      <span class="section-kicker">Reach out</span>
-      <h2 class="section-title">Contact details</h2>
-      <p><strong>Email:</strong> info@drnarendrabhatt.in</p>
-      <p><strong>Location:</strong> Parel East, Mumbai, India</p>
-      <p><strong>Best for:</strong> Clinical consultation, Ayurveda research, industry strategy, policy and academic dialogue.</p>
-      
-      <div style="margin-top:28px;border-top:1px solid var(--hairline-soft);padding-top:20px;">
-       <span class="section-kicker">Choose the right route</span>
-       <ul style="padding-left:18px;margin-top:10px;font-size:14px;color:var(--slate);line-height:1.7;">
-        <li><strong>Clinical (Patient Concern):</strong> Mention diagnosis, duration, current medication, reports, and preferred consultation mode.</li>
-        <li><strong>Research (Study or Idea):</strong> Share the research question, institution, timeline, and expected form of collaboration.</li>
-        <li><strong>Industry (Advisory Need):</strong> Clarify product category, market stage, standardization challenge, or strategic goal.</li>
-        <li><strong>Policy (Governance Dialogue):</strong> Describe the framework, institutional issue, panel, or policy objective.</li>
-        <li><strong>Academia (Teaching or Collaboration):</strong> Mention the university, lecture, workshop, publication, or academic collaboration context.</li>
-       </ul>
-      </div>
+   <section class="band ">
+    <div class="wrap">
+     <div class="split even" id="enquiry">
+      <div class="col auto"><article class="tile big reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></span><h3>Contact details</h3><p><strong style="color:var(--ink)">Email:</strong> info@drnarendrabhatt.in</p><p><strong style="color:var(--ink)">Location:</strong> Parel East, Mumbai, India</p><p><strong style="color:var(--ink)">Best for:</strong> Clinical consultation, Ayurveda research, industry strategy, policy and academic dialogue.</p></article><article class="tile flat reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span><h3>Choose the right route</h3><ul class="route-list"><li><strong>Clinical (patient concern)</strong> Mention diagnosis, duration, current medication, reports and preferred consultation mode.</li><li><strong>Research (study or idea)</strong> Share the research question, institution, timeline and expected collaboration.</li><li><strong>Industry (advisory need)</strong> Clarify product category, market stage, standardisation challenge or strategic goal.</li><li><strong>Policy (governance dialogue)</strong> Describe the framework, institutional issue, panel or policy objective.</li><li><strong>Academia (teaching or collaboration)</strong> Mention the university, lecture, workshop or publication context.</li></ul></article></div>
+      <form class="contact-form reveal" data-contact-email="info@drnarendrabhatt.in">
+       <h2 style="font-size:clamp(28px,3vw,40px)">Write with a clear purpose</h2>
+       <p>Select the closest route and include enough context for the team to direct the enquiry properly.</p>
+       <label>Name<input name="name" type="text" autocomplete="name" required /></label>
+       <label>Email<input name="email" type="email" autocomplete="email" required /></label>
+       <label>Purpose of enquiry<select name="purpose" required><option value="Clinical consultation">Clinical consultation</option><option value="Research collaboration">Research collaboration</option><option value="Industry advisory">Industry advisory</option><option value="Policy dialogue">Policy dialogue</option><option value="Academic collaboration">Academic collaboration</option><option value="Other enquiry">Other enquiry</option></select></label>
+       <label>Message<textarea name="message" required></textarea></label>
+       <button class="btn primary" type="submit">Submit enquiry<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></button>
+      </form>
      </div>
-     <form class="contact-form reveal" data-contact-email="info@drnarendrabhatt.in">
-      <span class="section-kicker">Enquiry form</span>
-      <h2 class="section-title">Write with a clear purpose</h2>
-      <p>Select the closest route and include enough context for the team to direct the enquiry properly.</p>
-      <label>Name
-       <input name="name" type="text" autocomplete="name" required />
-      </label>
-      <label>Email
-       <input name="email" type="email" autocomplete="email" required />
-      </label>
-      <label>Purpose of Enquiry
-       <select name="purpose" required>
-        <option value="Clinical consultation">Clinical consultation</option>
-        <option value="Research collaboration">Research collaboration</option>
-        <option value="Industry advisory">Industry advisory</option>
-        <option value="Policy dialogue">Policy dialogue</option>
-        <option value="Academic collaboration">Academic collaboration</option>
-        <option value="Other enquiry">Other enquiry</option>
-       </select>
-      </label>
-      <label>Message
-       <textarea name="message" required></textarea>
-      </label>
-      <button class="button primary" type="submit">Submit Enquiry</button>
-     </form>
     </div>
    </section>
+
+
   </main>
 
   <footer class="site-footer">
    <div class="footer-grid">
     <div class="footer-col"><h3>Contact</h3><p>For enquiries related to Dr. Narendra Bhatt&rsquo;s clinical, research, industry, academic, and policy work.</p></div>
-    <div class="footer-col"><h3>Explore</h3><ul class="footer-links"><li><a href="index.html#clinical-foundation">Ayurvedic Physician</a></li><li><a href="research-hub.html">Researcher</a></li><li><a href="industry.html">Business / Industry</a></li><li><a href="academic-policy.html">Academic / Policy</a></li><li><a href="contact.html">Contact Clinic</a></li></ul></div>
+    <div class="footer-col"><h3>Explore</h3><ul class="footer-links"><li><a href="clinical.html">Ayurvedic Physician</a></li><li><a href="research-hub.html">Researcher</a></li><li><a href="industry.html">Business / Industry</a></li><li><a href="academic-policy.html">Academic / Policy</a></li><li><a href="contact.html">Contact Clinic</a></li></ul></div>
     <div class="footer-col"><h3>Contact</h3><p>info@drnarendrabhatt.in</p><p>Parel East, Mumbai, India</p><p class="footer-social"><span>Facebook</span><span>Instagram</span><span>YouTube</span></p></div>
    </div>
-   <div class="footer-bottom"><span>&copy; 2026 Dr. Narendra Bhatt. All rights reserved.</span><span class="ecosystem-links"><a href="../CRIA/index.html">CRIA</a><a href="../inventayu/index.html">InventAYU</a></span></div>
+   <div class="footer-bottom"><span>&copy; 2026 Dr. Narendra Bhatt. All rights reserved.</span><span class="ecosystem-links"><a href="https://cria.in" target="_blank" rel="noopener">CRIA</a><a href="https://inventayu.com" target="_blank" rel="noopener">InventAYU</a></span></div>
   </footer>
   <script src="nsb-system.js"></script>
+  <script src="nsb-premium.js?v=12" defer></script>
  </body>
 </html>
